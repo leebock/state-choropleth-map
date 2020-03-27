@@ -41,7 +41,7 @@
 				worldCopyJump: true
 			}
 		)
-			.addControl(L.control.attribution({position: 'bottomleft'}))
+			.addControl(L.control.attribution({position: 'bottomleft'}).addAttribution("Esri"))
 			.on("click", onMapClick)
 			.on("moveend", onExtentChange);
 			
