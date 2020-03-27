@@ -12,8 +12,12 @@
 		SPREADSHEET_URL = "https://storymaps.esri.com/proxy/proxy.ashx?"+SPREADSHEET_URL;
 	}
 	
+	var GEOJSON_URL_STATES = "resources/states_CONUS_AK_HI.json";
+	
 	var _map;
 	var _layerMarkers;
+	var _featuresStates;
+	var _layerStates;
 
 	var _records;	
 	var _selected;
@@ -45,7 +49,7 @@
 		_layerMarkers = L.featureGroup()
 			.addTo(_map)
 			.on("click", onMarkerClick);
-
+			
 		if (!L.Browser.mobile) {
 			L.easyButton({
 				states:[
@@ -78,10 +82,27 @@
 				}
 			}
 		);
+		
+		
+		$.ajax({
+			url: GEOJSON_URL_STATES,
+			success: function(result) {
+				_featuresStates = result.features;
+				finish();
+			}
+		});		
 
 		function finish()
 		{
 
+			if (
+				!_featuresStates || 
+				!_records) {
+				return;
+			}
+
+			_layerStates = L.geoJSON(_featuresStates).addTo(_map);
+			
 			$.each(
 				_records, 
 				function(index, record) {
