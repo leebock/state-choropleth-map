@@ -5,13 +5,7 @@
 	//var WIDTH_THRESHOLD = 768;
 
 	var GLOBAL_CLASS_USETOUCH = "touch";
-	var SPREADSHEET_URL =  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7OZXMn9kkBwlOfYcd-uLJ8j2slj_6wYd7ko_8eFrN5d4v5wp3hVvbKzF8nuSg8yWC3oWAF67O0EKd/pub?gid=0&single=true&output=csv";
-	if (window.location.hostname.toLowerCase() === "localhost") {
-		SPREADSHEET_URL = "/proxy/proxy.ashx?"+SPREADSHEET_URL;
-	} else {
-		SPREADSHEET_URL = "https://storymaps.esri.com/proxy/proxy.ashx?"+SPREADSHEET_URL;
-	}
-	
+	var SPREADSHEET_URL =  "resources/CoronavirusStateActionsChart_26March2020.csv";	
 	var GEOJSON_URL_STATES = "resources/states_CONUS_AK_HI.json";
 	
 	var _map;
@@ -65,12 +59,8 @@
 				header: true,
 				download: true,
 				complete: function(data) {
-					_records = $.grep(
-						data.data, 
-						function(value){return value.Lat && value.Long;}
-					);
 					_records = $.map(
-						_records, 
+						data.data, 
 						function(value, index){return new Record(value, index);}
 					);
 					finish();

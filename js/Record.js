@@ -1,5 +1,6 @@
 function Record(json, index)
 {
+	console.log(json);
 	this._id = index;
 	this._json = json;
 }
