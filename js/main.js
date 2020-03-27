@@ -15,7 +15,6 @@
 	var GEOJSON_URL_STATES = "resources/states_CONUS_AK_HI.json";
 	
 	var _map;
-	var _layerMarkers;
 	var _featuresStates;
 	var _layerStates;
 
@@ -38,17 +37,13 @@
 				zoomControl: !L.Browser.mobile, 
 				attributionControl: false, 
 				maxZoom: 12, minZoom: 2, 
+				zoomSnap: 0.25,
 				worldCopyJump: true
 			}
 		)
-			.addLayer(L.esri.basemapLayer("NationalGeographic"))			
 			.addControl(L.control.attribution({position: 'bottomleft'}))
 			.on("click", onMapClick)
 			.on("moveend", onExtentChange);
-
-		_layerMarkers = L.featureGroup()
-			.addTo(_map)
-			.on("click", onMarkerClick);
 			
 		if (!L.Browser.mobile) {
 			L.easyButton({
@@ -56,7 +51,7 @@
 					{
 						icon: "fa fa-home",
 						onClick: function(btn, map){
-							_map.fitBounds(_layerMarkers.getBounds());
+							_map.fitBounds(_layerStates.getBounds());
 						},
 						title: "Full extent"
 					}
@@ -102,26 +97,7 @@
 			}
 
 			_layerStates = L.geoJSON(_featuresStates).addTo(_map);
-			
-			$.each(
-				_records, 
-				function(index, record) {
-
-					L.marker(
-						record.getLatLng(), 
-						{
-							riseOnHover: true
-						}
-					)
-						.bindPopup(record.getTitle(), {closeButton: false})
-						.bindTooltip(record.getTitle())
-						.addTo(_layerMarkers)
-						.key = record.getID();
-
-				}
-			);
-
-			_map.fitBounds(_layerMarkers.getBounds());
+			_map.fitBounds(_layerStates.getBounds());
 
 			// one time check to see if touch is being used
 
@@ -141,15 +117,6 @@
 	function onMapClick(e)
 	{
 		_selected = null;
-	}
-
-	function onMarkerClick(e)
-	{
-		$(".leaflet-tooltip").remove();
-		_selected = $.grep(
-			_records, 
-			function(value){return value.getID() === e.layer.key;}
-		).shift();
 	}
 
 	/***************************************************************************
