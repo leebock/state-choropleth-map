@@ -86,7 +86,12 @@
 				return;
 			}
 
-			_layerStates = L.geoJSON(_featuresStates).addTo(_map);
+			_layerStates = L.geoJSON(
+				_featuresStates,
+				{
+					onEachFeature: function(feature, layer) {layer.bindTooltip(feature.properties.STUSPS);}
+				}
+			).addTo(_map);
 			_map.fitBounds(_layerStates.getBounds());
 
 			// one time check to see if touch is being used
