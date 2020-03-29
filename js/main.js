@@ -13,7 +13,6 @@
 	var _layerStates;
 
 	var _records;	
-	var _selected;
 	
 	var LEGEND = [
 		{status: true, color: "red"},
@@ -152,7 +151,6 @@
 
 	function onMapClick(e)
 	{
-		_selected = null;
 	}
 	
 	function layer_onClick(e)
