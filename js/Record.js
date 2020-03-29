@@ -1,41 +1,20 @@
-function Record(json, index)
+function Record(json)
 {
 	console.log(json);
-	this._id = index;
 	this._json = json;
 }
 
-Record.prototype.getID = function()
+Record.prototype.getName = function()
 {
-	return this._id;
+	return this._json.State;
 };
 
-Record.prototype.getTitle = function()
+Record.prototype.getStateAbbrev = function()
 {
-	return this._json.Location;
+	return this._json.State.split("(").pop().replace(")","");
 };
 
-Record.prototype.getText = function()
+Record.prototype.getEmergencyDeclarationStatus = function()
 {
-	return this._json.Text;
-};
-
-Record.prototype.getHint = function()
-{
-	return this._json.Hint;
-};
-
-Record.prototype.getExclamation = function()
-{
-	return this._json.Exclamation;
-};
-
-Record.prototype.getImageURL = function()
-{
-	return this._json["Image-URL"];
-};
-
-Record.prototype.getLatLng = function()
-{
-	return L.latLng(this._json.Lat, this._json.Long);
+	return this._json["Emergency Declaration"].trim().toLowerCase() === "yes";
 };

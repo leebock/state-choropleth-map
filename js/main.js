@@ -14,7 +14,12 @@
 
 	var _records;	
 	var _selected;
-
+	
+	var LEGEND = [
+		{status: true, color: "red"},
+		{status: false, color: "gray"}
+	];	
+	
 	$(document).ready(function() {
 		
 		console.log(parseArgs());
@@ -61,7 +66,7 @@
 				complete: function(data) {
 					_records = $.map(
 						data.data, 
-						function(value, index){return new Record(value, index);}
+						function(value, index){return new Record(value);}
 					);
 					finish();
 				}
@@ -80,16 +85,26 @@
 		function finish()
 		{
 
-			if (
-				!_featuresStates || 
-				!_records) {
+			if (!_featuresStates || !_records) {
 				return;
 			}
 
 			_layerStates = L.geoJSON(
 				_featuresStates,
 				{
-					onEachFeature: function(feature, layer) {layer.bindTooltip(feature.properties.STUSPS);}
+					style: createStyle,
+					onEachFeature: function(feature, layer) {
+						var record = $.grep(
+							_records, 
+							function(value) {
+								return value.getStateAbbrev() === feature.properties.STUSPS;
+							}
+						).shift();
+						record = record || new Record({});
+						feature.extraProperties = record;
+						layer.bindTooltip(record.getName());
+						layer.on("click", layer_onClick);						
+					}
 				}
 			).addTo(_map);
 			_map.fitBounds(_layerStates.getBounds());
@@ -100,10 +115,36 @@
 				"touchstart", 
 				function(){$("html body").addClass(GLOBAL_CLASS_USETOUCH);}
 			);
+			
+			_layerStates.eachLayer(function(layer){_layerStates.resetStyle(layer);});			
 
 		}
 
 	});
+
+	function createStyle(feature)
+	{
+		var color = feature.extraProperties ? 
+					getColor(feature.extraProperties) : 
+					null;						
+		return {
+			fillColor: color || "gray", 
+			fillOpacity: 0.4,
+			color: "gray", 
+			opacity: 1, 
+			weight: 1							
+		};
+		
+		function getColor(record)
+		{
+			var item = $.grep(
+				LEGEND, 
+				function(value){return value.status === record.getEmergencyDeclarationStatus();}
+			).shift();
+			return !item ? null : item.color;
+		}	
+		
+	}
 
 	/***************************************************************************
 	********************** EVENTS that affect selection ************************
@@ -112,6 +153,19 @@
 	function onMapClick(e)
 	{
 		_selected = null;
+	}
+	
+	function layer_onClick(e)
+	{
+		$(".leaflet-tooltip").remove();
+		L.popup({closeButton: false})
+			.setLatLng(e.latlng)
+			.setContent(
+				$("<div>")
+					.append($("<div>").text(e.target.feature.extraProperties.getName()))
+					.html()											
+			)
+			.openOn(_map);		
 	}
 
 	/***************************************************************************
