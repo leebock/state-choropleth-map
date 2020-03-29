@@ -1,6 +1,6 @@
 function Record(json)
 {
-	console.log(json);
+	//console.log(json["Major Disaster Declaration"]);
 	this._json = json;
 }
 
@@ -17,4 +17,14 @@ Record.prototype.getStateAbbrev = function()
 Record.prototype.getEmergencyDeclarationStatus = function()
 {
 	return this._json["Emergency Declaration"].trim().toLowerCase() === "yes";
+};
+
+Record.prototype.getMajorDisasterDeclarationStatus = function()
+{
+	return this._json["Major Disaster Declaration"].trim();
+};
+
+Record.prototype.getNationalGuardActivationStatus = function()
+{
+	return this._json["National Guard Activation"].trim().toLowerCase() === "yes";
 };

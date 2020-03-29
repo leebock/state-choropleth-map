@@ -115,4 +115,13 @@ a, button {
   text-align: center;
 }
 
+select#category {
+  position: absolute;
+  z-index: 6000;
+  right: 20px;
+  top: 85px;
+  font-size: 20px;
+  padding: 5px;
+}
+
 /*# sourceMappingURL=main.css.map */

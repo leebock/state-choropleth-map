@@ -14,11 +14,6 @@
 
 	var _records;	
 	
-	var LEGEND = [
-		{status: true, color: "red"},
-		{status: false, color: "gray"}
-	];	
-	
 	$(document).ready(function() {
 		
 		console.log(parseArgs());
@@ -99,7 +94,6 @@
 								return value.getStateAbbrev() === feature.properties.STUSPS;
 							}
 						).shift();
-						record = record || new Record({});
 						feature.extraProperties = record;
 						layer.bindTooltip(record.getName());
 						layer.on("click", layer_onClick);						
@@ -115,17 +109,66 @@
 				function(){$("html body").addClass(GLOBAL_CLASS_USETOUCH);}
 			);
 			
-			_layerStates.eachLayer(function(layer){_layerStates.resetStyle(layer);});			
+			$("select#category").change(function(){processCategoryChange();});
+			
+			processCategoryChange();
 
 		}
 
 	});
+	
+	function processCategoryChange()
+	{
+		_map.closePopup();		
+		_layerStates.eachLayer(function(layer){_layerStates.resetStyle(layer);});			
+	}
 
 	function createStyle(feature)
 	{
-		var color = feature.extraProperties ? 
-					getColor(feature.extraProperties) : 
-					null;						
+		
+		if (!feature.extraProperties) {
+			return null;
+		}
+		
+		var category = $("select#category").val();
+		
+		var legend;	
+		var status;
+		
+		switch(category) {
+			case "Emergency Declaration":
+				status = feature.extraProperties.getEmergencyDeclarationStatus();
+				legend = [
+					{status: true, color: "red"},
+					{status: false, color: "gray"}
+				];			
+				break;
+			case "Major Disaster Declaration":
+				status = feature.extraProperties.getMajorDisasterDeclarationStatus();
+				legend = [
+					{status: "Request Approved", color: "blue"},
+					{status: "Request Made", color: "yellow"}
+				];			
+				break;
+			case "National Guard Activation":
+				status = feature.extraProperties.getNationalGuardActivationStatus();
+				legend = [
+					{status: true, color: "blue"}
+				];			
+				break;
+			default:
+			 	//
+		}
+
+		var item = $.grep(
+			legend, 
+			function(value) {
+				return value.status === status;
+			}
+		).shift();
+
+		var color = !item ? null : item.color;
+
 		return {
 			fillColor: color || "gray", 
 			fillOpacity: 0.4,
@@ -133,15 +176,6 @@
 			opacity: 1, 
 			weight: 1							
 		};
-		
-		function getColor(record)
-		{
-			var item = $.grep(
-				LEGEND, 
-				function(value){return value.status === record.getEmergencyDeclarationStatus();}
-			).shift();
-			return !item ? null : item.color;
-		}	
 		
 	}
 
