@@ -63,20 +63,13 @@
 			{
 				header: true,
 				download: true,
-				complete: function(data) {
-					_records = data.data;
-					finish();
-				}
+				complete: function(data) {_records = data.data;finish();}
 			}
 		);
 		
-		
 		$.ajax({
 			url: GEOJSON_URL_STATES,
-			success: function(result) {
-				_featuresStates = result.features;
-				finish();
-			}
+			success: function(result) {_featuresStates = result.features;finish();}
 		});		
 
 		function finish()
