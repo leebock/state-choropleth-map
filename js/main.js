@@ -184,35 +184,21 @@
 		}
 		
 		var category = $("select#category").val();
-		
 		var legend = LEGEND_LUT[category];			
-		var status;
+		var status = feature.extraProperties[category].trim();
 		
 		switch(category) {
-			case "Emergency Declaration":
-				status = feature
-						.extraProperties[FIELDNAME$EMERGENCY_DECLARATION]
-						.trim().toLowerCase() === "yes";
+			case FIELDNAME$EMERGENCY_DECLARATION:
+				status = status.toLowerCase() === "yes";
 				break;
-			case "Major Disaster Declaration":
-				status = feature
-						.extraProperties[FIELDNAME$MAJOR_DISASTER_DECLARATION]
-						.trim();
+			case FIELDNAME$NATIONAL_GUARD_ACTIVATION:
+				status = status.toLowerCase() === "yes";
 				break;
-			case "National Guard Activation":
-				status = feature
-						.extraProperties[FIELDNAME$NATIONAL_GUARD_ACTIVATION]
-						.trim().toLowerCase() === "yes";
-				break;
-			case "State Employee Travel Restrictions":
-				status = feature
-						.extraProperties[FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS]
-						.trim().toLowerCase() === "yes";
+			case FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS:
+				status = status.toLowerCase() === "yes";
 				break;
 			case FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS:
-				status = feature
-						.extraProperties[FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS]
-						.trim().toLowerCase();
+				status = status.toLowerCase();
 				status = status.substring(0,3) === "yes" ? "yes" :
 						 status.substring(0,3) === "rec" ? "recommended" : "no";
 				break;
