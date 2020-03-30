@@ -14,6 +14,7 @@
 	var FIELDNAME$NATIONAL_GUARD_ACTIVATION = "National Guard Activation";
 	var FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS = "State Employee Travel Restrictions";
 	var FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS = "Statewide Limits on Gatherings";
+	var FIELDNAME$STATEWIDE_SCHOOL_CLOSURES  = "Statewide School Closures";
 	
 	var LEGEND_LUT = {};
 	
@@ -133,6 +134,10 @@
 				{status: "recommended", color: "orange", caption: "Recommended"},
 				{status: "no", color: "gray", caption: "No"}
 			];			
+			LEGEND_LUT[FIELDNAME$STATEWIDE_SCHOOL_CLOSURES] = [
+				{status: true, color: "red", caption: "Yes"},
+				{status: false, color: "gray", caption: "No"}
+			];
 			
 			$.each(
 				[
@@ -140,7 +145,8 @@
 					FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS,
 					FIELDNAME$EMERGENCY_DECLARATION, 
 					FIELDNAME$NATIONAL_GUARD_ACTIVATION, 
-					FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS
+					FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS,
+					FIELDNAME$STATEWIDE_SCHOOL_CLOSURES
 				],
 				function(index, value) {
 					$("<option>").val(value).text(value).appendTo($("select#category"));
@@ -201,6 +207,9 @@
 				status = status.toLowerCase();
 				status = status.substring(0,3) === "yes" ? "yes" :
 						 status.substring(0,3) === "rec" ? "recommended" : "no";
+				break;
+			case FIELDNAME$STATEWIDE_SCHOOL_CLOSURES:
+				status = status.toLowerCase() === "yes";
 				break;
 			default:
 			 	//
