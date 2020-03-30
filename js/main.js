@@ -6,7 +6,7 @@
 
 	var GLOBAL_CLASS_USETOUCH = "touch";
 	var SPREADSHEET_URL =  "resources/CoronavirusStateActionsChart_26March2020.csv";	
-	var GEOJSON_URL_STATES = "resources/states_CONUS_AK_HI.json";
+	var GEOJSON_URL_STATES = "resources/Composite_CONUS_AK_HI_5.json";
 	
 	var _map;
 	var _featuresStates;
@@ -91,7 +91,7 @@
 						var record = $.grep(
 							_records, 
 							function(value) {
-								return value.getStateAbbrev() === feature.properties.STUSPS;
+								return value.getStateAbbrev() === feature.properties["State abbreviation"];
 							}
 						).shift();
 						feature.extraProperties = record;
