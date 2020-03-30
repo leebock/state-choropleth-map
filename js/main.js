@@ -150,11 +150,36 @@
 				],
 				function(index, value) {
 					$("<option>").val(value).text(value).appendTo($("select#category"));
+					$("<input>")
+						.attr({
+							"type": "radio", 
+							"name": "category", 
+							"value": value, "id": 
+							"radio-"+index
+						})
+						.appendTo($("div.toggle"));
+					$("<label>")
+						.attr("for", "radio-"+index)
+						.text(value)
+						.appendTo($("div.toggle"));
 				}
 			);
 			
-			$("select#category").change(function(){processCategoryChange();});
-			
+			$("select#category").change(
+				function() {
+					var category = $(this).val();
+					$("input[name='category']").prop("checked", false);
+					$("input[name='category'][value='"+category+"']").prop("checked", true);
+					processCategoryChange();
+				}
+			);
+			$("input[name='category']").change(
+				function() {
+					$("select#category").val($("input[name='category']:checked").val());
+					processCategoryChange();
+				}
+			);
+			$("input[name='category']:nth-of-type(1)").prop("checked", true);
 			processCategoryChange();
 
 		}

@@ -97,25 +97,44 @@ select#category {
   position: absolute;
   z-index: 6000;
   right: 20px;
-  top: 85px;
-  font-size: 20px;
+  top: 70px;
+  font-size: 14px;
   padding: 5px;
+  display: none;
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
+
+@import "ToggleSwitch";
+
+div.toggle {
+  position: absolute;
+  z-index: 500;
+  left: 60px;
+  top: 70px;
+  @media (max-width: 1023px) {
+    top: 55px;
+  }  
+  @media (max-width: 600px) {
+    display: none;
+  }
 }
 
 div#legend {
   position: absolute;;
   z-index: 6001;
-  left: 70px;
-  top: 85px;
-  font-size: 20px;
+  right: 15px;
+  bottom: 15px;
+  font-size: 14px;
   padding: 5px;
   display: flex;
   * {
     margin-right: 5px;
   }
   div.swatch {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     opacity: 0.4;
   }
 }
