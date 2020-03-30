@@ -124,4 +124,22 @@ select#category {
   padding: 5px;
 }
 
+div#legend {
+  position: absolute;
+  z-index: 6001;
+  left: 70px;
+  top: 85px;
+  font-size: 20px;
+  padding: 5px;
+  display: flex;
+}
+div#legend * {
+  margin-right: 5px;
+}
+div#legend div.swatch {
+  width: 30px;
+  height: 30px;
+  opacity: 0.4;
+}
+
 /*# sourceMappingURL=main.css.map */

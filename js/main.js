@@ -120,7 +120,37 @@
 	function processCategoryChange()
 	{
 		_map.closePopup();		
+		createLegend();
 		_layerStates.eachLayer(function(layer){_layerStates.resetStyle(layer);});			
+	}
+	
+	var LEGEND_LUT = {
+		"Emergency Declaration": [
+			{status: true, color: "red", caption: "Yes"},
+			{status: false, color: "gray", caption: "No"}
+		],
+		"Major Disaster Declaration": [
+			{status: "Request Approved", color: "blue", caption: "Request Approved"},
+			{status: "Request Made", color: "yellow", caption: "Request Made"}
+		],
+		"National Guard Activation": [
+			{status: true, color: "blue", caption: "Yes"},
+			{status: false, color: "gray", caption: "No"}
+		]			
+	};
+	
+	function createLegend()
+	{
+		$("div#legend").empty();
+		var legend = LEGEND_LUT[$("select#category").val()];
+		$.each(
+			legend,
+			function(index, value) {
+				$("div#legend")
+					.append($("<div>").addClass("swatch").css("background-color", value.color))
+					.append($("<div>").addClass("caption").text(value.caption));
+			}
+		);
 	}
 
 	function createStyle(feature)
@@ -132,29 +162,18 @@
 		
 		var category = $("select#category").val();
 		
-		var legend;	
+		var legend = LEGEND_LUT[category];			
 		var status;
 		
 		switch(category) {
 			case "Emergency Declaration":
 				status = feature.extraProperties.getEmergencyDeclarationStatus();
-				legend = [
-					{status: true, color: "red"},
-					{status: false, color: "gray"}
-				];			
 				break;
 			case "Major Disaster Declaration":
 				status = feature.extraProperties.getMajorDisasterDeclarationStatus();
-				legend = [
-					{status: "Request Approved", color: "blue"},
-					{status: "Request Made", color: "yellow"}
-				];			
 				break;
 			case "National Guard Activation":
 				status = feature.extraProperties.getNationalGuardActivationStatus();
-				legend = [
-					{status: true, color: "blue"}
-				];			
 				break;
 			default:
 			 	//
