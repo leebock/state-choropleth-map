@@ -109,6 +109,18 @@
 				function(){$("html body").addClass(GLOBAL_CLASS_USETOUCH);}
 			);
 			
+			$.each(
+				[
+					FIELDNAME$EMERGENCY_DECLARATION, 
+					FIELDNAME$MAJOR_DISASTER_DECLARATION, 
+					FIELDNAME$NATIONAL_GUARD_ACTIVATION, 
+					FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS
+				],
+				function(index, value) {
+					$("<option>").val(value).text(value).appendTo($("select#category"));
+				}
+			);
+			
 			$("select#category").change(function(){processCategoryChange();});
 			
 			processCategoryChange();
