@@ -5,7 +5,7 @@
 	//var WIDTH_THRESHOLD = 768;
 
 	var GLOBAL_CLASS_USETOUCH = "touch";
-	var SPREADSHEET_URL =  "resources/CoronavirusStateActionsChart_26March2020.csv";	
+	var SPREADSHEET_URL =  "resources/CoronavirusStateActionsChart.csv";	
 	var GEOJSON_URL_STATES = "resources/Composite_CONUS_AK_HI_5.json";
 	
 	var _map;
