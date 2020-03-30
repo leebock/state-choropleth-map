@@ -13,6 +13,7 @@
 	var FIELDNAME$MAJOR_DISASTER_DECLARATION = "Major Disaster Declaration";
 	var FIELDNAME$NATIONAL_GUARD_ACTIVATION = "National Guard Activation";
 	var FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS = "State Employee Travel Restrictions";
+	var FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS = "Statewide Limits on Gatherings";
 	
 	var _map;
 	var _featuresStates;
@@ -114,7 +115,8 @@
 					FIELDNAME$EMERGENCY_DECLARATION, 
 					FIELDNAME$MAJOR_DISASTER_DECLARATION, 
 					FIELDNAME$NATIONAL_GUARD_ACTIVATION, 
-					FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS
+					FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS,
+					FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS
 				],
 				function(index, value) {
 					$("<option>").val(value).text(value).appendTo($("select#category"));
@@ -152,6 +154,11 @@
 		"State Employee Travel Restrictions": [
 			{status: true, color: "red", caption: "Yes"},
 			{status: false, color: "gray", caption: "No"}
+		],
+		"Statewide Limits on Gatherings": [
+			{status: "yes", color: "red", caption: "Yes"},
+			{status: "recommended", color: "orange", caption: "Recommended"},
+			{status: "no", color: "gray", caption: "No"}
 		]			
 	};
 	
@@ -201,6 +208,13 @@
 				status = feature
 						.extraProperties[FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS]
 						.trim().toLowerCase() === "yes";
+				break;
+			case FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS:
+				status = feature
+						.extraProperties[FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS]
+						.trim().toLowerCase();
+				status = status.substring(0,3) === "yes" ? "yes" :
+						 status.substring(0,3) === "rec" ? "recommended" : "no";
 				break;
 			default:
 			 	//
