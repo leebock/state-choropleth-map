@@ -8,6 +8,12 @@
 	var SPREADSHEET_URL =  "resources/CoronavirusStateActionsChart.csv";	
 	var GEOJSON_URL_STATES = "resources/Composite_CONUS_AK_HI_5.json";
 	
+	var FIELDNAME$STATE = "State";
+	var FIELDNAME$EMERGENCY_DECLARATION = "Emergency Declaration";
+	var FIELDNAME$MAJOR_DISASTER_DECLARATION = "Major Disaster Declaration";
+	var FIELDNAME$NATIONAL_GUARD_ACTIVATION = "National Guard Activation";
+	var FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS = "State Employee Travel Restrictions";
+	
 	var _map;
 	var _featuresStates;
 	var _layerStates;
@@ -58,10 +64,7 @@
 				header: true,
 				download: true,
 				complete: function(data) {
-					_records = $.map(
-						data.data, 
-						function(value, index){return new Record(value);}
-					);
+					_records = data.data;
 					finish();
 				}
 			}
@@ -91,11 +94,15 @@
 						var record = $.grep(
 							_records, 
 							function(value) {
-								return value.getStateAbbrev() === feature.properties["State abbreviation"];
+								return value[FIELDNAME$STATE]
+										.split("(")
+										.pop()
+										.replace(")","") === 
+										feature.properties["State abbreviation"];
 							}
 						).shift();
 						feature.extraProperties = record;
-						layer.bindTooltip(record.getName());
+						layer.bindTooltip(record[FIELDNAME$STATE]);
 						layer.on("click", layer_onClick);						
 					}
 				}
@@ -171,16 +178,24 @@
 		
 		switch(category) {
 			case "Emergency Declaration":
-				status = feature.extraProperties.getEmergencyDeclarationStatus();
+				status = feature
+						.extraProperties[FIELDNAME$EMERGENCY_DECLARATION]
+						.trim().toLowerCase() === "yes";
 				break;
 			case "Major Disaster Declaration":
-				status = feature.extraProperties.getMajorDisasterDeclarationStatus();
+				status = feature
+						.extraProperties[FIELDNAME$MAJOR_DISASTER_DECLARATION]
+						.trim();
 				break;
 			case "National Guard Activation":
-				status = feature.extraProperties.getNationalGuardActivationStatus();
+				status = feature
+						.extraProperties[FIELDNAME$NATIONAL_GUARD_ACTIVATION]
+						.trim().toLowerCase() === "yes";
 				break;
 			case "State Employee Travel Restrictions":
-				status = feature.extraProperties.getStateEmployeeTravelRestrictionsStatus();
+				status = feature
+						.extraProperties[FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS]
+						.trim().toLowerCase() === "yes";
 				break;
 			default:
 			 	//
@@ -220,7 +235,7 @@
 			.setLatLng(e.latlng)
 			.setContent(
 				$("<div>")
-					.append($("<div>").text(e.target.feature.extraProperties.getName()))
+					.append($("<div>").text(e.target.feature.extraProperties[FIELDNAME$STATE]))
 					.html()											
 			)
 			.openOn(_map);		
