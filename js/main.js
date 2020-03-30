@@ -98,7 +98,7 @@
 							}
 						).shift();
 						feature.extraProperties = record;
-						layer.bindTooltip(record[FIELDNAME$STATE]);
+						layer.bindTooltip(feature.properties["State abbreviation"]);
 						layer.on("click", layer_onClick);						
 					}
 				}
@@ -236,11 +236,18 @@
 	function layer_onClick(e)
 	{
 		$(".leaflet-tooltip").remove();
+		var category = $("select#category").val();
+		var content = e.target.feature.extraProperties[category].trim();
 		L.popup({closeButton: false})
 			.setLatLng(e.latlng)
 			.setContent(
 				$("<div>")
-					.append($("<div>").text(e.target.feature.extraProperties[FIELDNAME$STATE]))
+					.append(
+						$("<div>")
+							.css("font-weight", "bold")
+							.text(e.target.feature.extraProperties[FIELDNAME$STATE])
+					)
+					.append($("<div>").text(content))
 					.html()											
 			)
 			.openOn(_map);		
