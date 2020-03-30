@@ -28,3 +28,8 @@ Record.prototype.getNationalGuardActivationStatus = function()
 {
 	return this._json["National Guard Activation"].trim().toLowerCase() === "yes";
 };
+
+Record.prototype.getStateEmployeeTravelRestrictionsStatus = function()
+{
+	return this._json["State Employee Travel Restrictions"].trim().toLowerCase() === "yes";
+};

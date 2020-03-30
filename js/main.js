@@ -136,6 +136,10 @@
 		"National Guard Activation": [
 			{status: true, color: "blue", caption: "Yes"},
 			{status: false, color: "gray", caption: "No"}
+		],
+		"State Employee Travel Restrictions": [
+			{status: true, color: "red", caption: "Yes"},
+			{status: false, color: "gray", caption: "No"}
 		]			
 	};
 	
@@ -174,6 +178,9 @@
 				break;
 			case "National Guard Activation":
 				status = feature.extraProperties.getNationalGuardActivationStatus();
+				break;
+			case "State Employee Travel Restrictions":
+				status = feature.extraProperties.getStateEmployeeTravelRestrictionsStatus();
 				break;
 			default:
 			 	//
