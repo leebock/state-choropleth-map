@@ -15,6 +15,8 @@
 	var FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS = "State Employee Travel Restrictions";
 	var FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS = "Statewide Limits on Gatherings";
 	
+	var LEGEND_LUT = {};
+	
 	var _map;
 	var _featuresStates;
 	var _layerStates;
@@ -110,6 +112,28 @@
 				function(){$("html body").addClass(GLOBAL_CLASS_USETOUCH);}
 			);
 			
+			LEGEND_LUT[FIELDNAME$EMERGENCY_DECLARATION] = [
+				{status: true, color: "red", caption: "Yes"},
+				{status: false, color: "gray", caption: "No"}
+			];
+			LEGEND_LUT[FIELDNAME$MAJOR_DISASTER_DECLARATION] = [
+				{status: "Request Approved", color: "blue", caption: "Request Approved"},
+				{status: "Request Made", color: "yellow", caption: "Request Made"}
+			];
+			LEGEND_LUT[FIELDNAME$NATIONAL_GUARD_ACTIVATION] = [
+				{status: true, color: "blue", caption: "Yes"},
+				{status: false, color: "gray", caption: "No"}
+			];
+			LEGEND_LUT[FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS] = [
+				{status: true, color: "red", caption: "Yes"},
+				{status: false, color: "gray", caption: "No"}
+			];
+			LEGEND_LUT[FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS] = [
+				{status: "yes", color: "red", caption: "Yes"},
+				{status: "recommended", color: "orange", caption: "Recommended"},
+				{status: "no", color: "gray", caption: "No"}
+			];			
+			
 			$.each(
 				[
 					FIELDNAME$EMERGENCY_DECLARATION, 
@@ -137,30 +161,6 @@
 		createLegend();
 		_layerStates.eachLayer(function(layer){_layerStates.resetStyle(layer);});			
 	}
-	
-	var LEGEND_LUT = {
-		"Emergency Declaration": [
-			{status: true, color: "red", caption: "Yes"},
-			{status: false, color: "gray", caption: "No"}
-		],
-		"Major Disaster Declaration": [
-			{status: "Request Approved", color: "blue", caption: "Request Approved"},
-			{status: "Request Made", color: "yellow", caption: "Request Made"}
-		],
-		"National Guard Activation": [
-			{status: true, color: "blue", caption: "Yes"},
-			{status: false, color: "gray", caption: "No"}
-		],
-		"State Employee Travel Restrictions": [
-			{status: true, color: "red", caption: "Yes"},
-			{status: false, color: "gray", caption: "No"}
-		],
-		"Statewide Limits on Gatherings": [
-			{status: "yes", color: "red", caption: "Yes"},
-			{status: "recommended", color: "orange", caption: "Recommended"},
-			{status: "no", color: "gray", caption: "No"}
-		]			
-	};
 	
 	function createLegend()
 	{
