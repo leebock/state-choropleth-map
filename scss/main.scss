@@ -53,6 +53,7 @@ a, button {
 .banner {
   
   flex-shrink: 0;
+  display: none;
   
   a#logo {
     img {
@@ -79,31 +80,27 @@ a, button {
 #main {
 
   flex: 1;
-  order: 1;
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: center;
   
   #map {
-  
-    flex: 1;
-    background-color: white;
-  
+    flex: 1;  
+    background: white;
     .easy-button-button {
       font-size: 18px;
     }
-  
     .leaflet-popup-content {
       text-align: center;
-    }  
-  
+    }
   }
   
   select#category {
     position: absolute;
     z-index: 6000;
-    right: 20px;
-    top: 70px;
+    right: 10px;
+    top: 10px;
     font-size: 14px;
     padding: 5px;
     display: none;
@@ -115,10 +112,6 @@ a, button {
   @import "ToggleSwitch";
   
   div.toggle {
-    position: absolute;
-    z-index: 500;
-    left: 60px;
-    top: 10px;
     @media (max-width: 900px) {
       display: none;
     }

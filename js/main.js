@@ -111,7 +111,6 @@
 					}
 				}
 			).addTo(_map);
-			_map.fitBounds(_layerStates.getBounds());
 
 			// one time check to see if touch is being used
 
@@ -226,7 +225,8 @@
 			);
 			$("input[name='category']:nth-of-type(1)").prop("checked", true);
 			processCategoryChange();
-
+			_map.fitBounds(_layerStates.getBounds());
+			
 		}
 
 	});

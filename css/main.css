@@ -85,6 +85,7 @@ a, button {
 
 .banner {
   flex-shrink: 0;
+  display: none;
 }
 @media (max-width: 1023px) {
   .banner a#logo img {
@@ -104,17 +105,17 @@ a, button {
 
 #main {
   flex: 1;
-  order: 1;
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: center;
   /* VARS */
   /* MIXINS */
   /* TOGGLE STYLING */
 }
 #main #map {
   flex: 1;
-  background-color: white;
+  background: white;
 }
 #main #map .easy-button-button {
   font-size: 18px;
@@ -125,8 +126,8 @@ a, button {
 #main select#category {
   position: absolute;
   z-index: 6000;
-  right: 20px;
-  top: 70px;
+  right: 10px;
+  top: 10px;
   font-size: 14px;
   padding: 5px;
   display: none;
@@ -142,7 +143,6 @@ a, button {
 #main .toggle {
   box-sizing: border-box;
   margin: 0px;
-  margin-right: 15px;
   font-size: 0;
   display: flex;
   flex-flow: row nowrap;
@@ -161,12 +161,13 @@ a, button {
   box-sizing: border-box;
   padding-top: 6px;
   padding-bottom: 6px;
-  padding-right: 4px;
-  padding-left: 4px;
+  padding-right: 6px;
+  padding-left: 6px;
   position: relative;
   display: inline-block;
   border: solid 1px #DDD;
   background-color: #FFF;
+  border-top: none;
   font-size: 14px;
   line-height: 120%;
   font-weight: 400;
@@ -175,11 +176,9 @@ a, button {
   transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
 }
 #main .toggle input + label:first-of-type {
-  border-radius: 6px 0 0 6px;
   border-right: none;
 }
 #main .toggle input + label:last-of-type {
-  border-radius: 0 6px 6px 0;
   border-left: none;
 }
 #main .toggle input:hover + label {
@@ -195,12 +194,6 @@ a, button {
 #main .toggle input:focus + label {
   outline: dotted 1px #CCC;
   outline-offset: 0.45rem;
-}
-#main div.toggle {
-  position: absolute;
-  z-index: 500;
-  left: 60px;
-  top: 10px;
 }
 @media (max-width: 900px) {
   #main div.toggle {
