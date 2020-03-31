@@ -101,7 +101,7 @@ select#category {
   font-size: 14px;
   padding: 5px;
   display: none;
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     display: block;
   }
 }
@@ -116,7 +116,7 @@ div.toggle {
   @media (max-width: 1023px) {
     top: 55px;
   }  
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     display: none;
   }
 }

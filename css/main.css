@@ -124,7 +124,7 @@ select#category {
   padding: 5px;
   display: none;
 }
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   select#category {
     display: block;
   }
@@ -206,7 +206,7 @@ div.toggle {
     top: 55px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   div.toggle {
     display: none;
   }
