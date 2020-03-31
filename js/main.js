@@ -17,6 +17,7 @@
 	var FIELDNAME$STATEWIDE_SCHOOL_CLOSURES  = "Statewide School Closures";
 	var FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED = "Essential Business Designations Issued";
 	//var FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES = "Statewide Closure of Non-Essential Businesses";
+	var FIELDNAME$STATEWIDE_CURFEW = "Statewide Curfew";
 	
 	var LEGEND_LUT = {};
 	
@@ -148,6 +149,11 @@
 				{status: true, color: "red", caption: "Yes"},
 				{status: false, color: "gray", caption: "No"}
 			];
+			LEGEND_LUT[FIELDNAME$STATEWIDE_CURFEW] = [
+				{status: "yes", color: "red", caption: "Yes"},
+				{status: "local", color: "orange", caption: "Local"},
+				{status: "none", color: "gray", caption: "None"}
+			];
 			
 			$.each(
 				[
@@ -158,7 +164,8 @@
 					FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS,
 					FIELDNAME$STATEWIDE_SCHOOL_CLOSURES,
 					/*FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES,*/
-					FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED
+					FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED,
+					FIELDNAME$STATEWIDE_CURFEW
 				],
 				function(index, value) {
 					$("<option>").val(value).text(value).appendTo($("select#category"));
@@ -254,6 +261,10 @@
 				break;*/
 			case FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED:
 				status = status.toLowerCase() === "yes";
+				break;
+			case FIELDNAME$STATEWIDE_CURFEW:
+				status = status.toLowerCase() === "yes" ? "yes" :
+						 status.toLowerCase() === "local" ? "local" : "none";
 				break;
 			default:
 			 	//
