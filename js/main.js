@@ -11,7 +11,7 @@
 	var FIELDNAME$STATE = "State";
 	var FIELDNAME$EMERGENCY_DECLARATION = "Emergency Declaration";
 	var FIELDNAME$MAJOR_DISASTER_DECLARATION = "Major Disaster Declaration";
-	var FIELDNAME$NATIONAL_GUARD_ACTIVATION = "National Guard Activation";
+	var FIELDNAME$NATIONAL_GUARD_ACTIVATION = "National Guard State Activation";
 	var FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS = "State Employee Travel Restrictions";
 	var FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS = "Statewide Limits on Gatherings";
 	var FIELDNAME$STATEWIDE_SCHOOL_CLOSURES  = "Statewide School Closures";
@@ -21,6 +21,7 @@
 	var FIELDNAME$1135_WAIVER_STATUS = "1135 Waiver Status";
 	var FIELDNAME$SHELTER_IN_PLACE_ORDER = "'Stay at Home' or Shelter in Place Order";
 	/*var FIELDNAME$PRIMARY_ELECTION = "Primary Election";*/
+	var FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS = "Domestic Travel Limitations";
 	
 	var LEGEND_LUT = {};
 	
@@ -170,6 +171,11 @@
 				{status: "on schedule", color: "orange", caption: "On Schedule"},
 				{status: "delayed / rescheduled", color: "gray", caption: "Delayed / Rescheduled"}
 			];*/
+			LEGEND_LUT[FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS] = [
+				{status: "executive order", color: "red", caption: "Executive Order"},
+				{status: "recommendation", color: "orange", caption: "Recommendation"},
+				{status: "none", color: "gray", caption: "None"}				
+			];
 			
 			$.each(
 				[
@@ -185,6 +191,7 @@
 					FIELDNAME$1135_WAIVER_STATUS,
 					FIELDNAME$SHELTER_IN_PLACE_ORDER,
 					/*FIELDNAME$PRIMARY_ELECTION*/
+					FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS
 				],
 				function(index, value) {
 					$("<option>").val(value).text(value).appendTo($("select#category"));
@@ -294,6 +301,10 @@
 			/*case FIELDNAME$PRIMARY_ELECTION:
 				status = status.toLowerCase();
 				break;*/
+			case FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS:
+				status = status.toLowerCase().search("executive") > -1 ? "executive order" :
+						 status.toLowerCase().search("recommendation") > -1 ? "recommendation" : "none";
+				break;
 			default:
 			 	//
 		}
