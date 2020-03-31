@@ -76,65 +76,70 @@ a, button {
   
 }
 
-#map {
+#main {
 
-  background-color: white;
-  flex-grow: 1;
-  flex-shrink: 1;
+  flex: 1;
   order: 1;
-
-  .easy-button-button {
-    font-size: 18px;
-  }
-
-  .leaflet-popup-content {
-    text-align: center;
-  }  
-
-}
-
-select#category {
-  position: absolute;
-  z-index: 6000;
-  right: 20px;
-  top: 70px;
-  font-size: 14px;
-  padding: 5px;
-  display: none;
-  @media (max-width: 900px) {
-    display: block;
-  }
-}
-
-@import "ToggleSwitch";
-
-div.toggle {
-  position: absolute;
-  z-index: 500;
-  left: 60px;
-  top: 70px;
-  @media (max-width: 1023px) {
-    top: 55px;
-  }  
-  @media (max-width: 900px) {
-    display: none;
-  }
-}
-
-div#legend {
-  position: absolute;;
-  z-index: 6001;
-  right: 15px;
-  bottom: 15px;
-  font-size: 14px;
-  padding: 5px;
   display: flex;
-  * {
-    margin-right: 5px;
+  flex-direction: column;
+  position: relative;
+  
+  #map {
+  
+    flex: 1;
+    background-color: white;
+  
+    .easy-button-button {
+      font-size: 18px;
+    }
+  
+    .leaflet-popup-content {
+      text-align: center;
+    }  
+  
   }
-  div.swatch {
-    width: 20px;
-    height: 20px;
-    opacity: 0.4;
+  
+  select#category {
+    position: absolute;
+    z-index: 6000;
+    right: 20px;
+    top: 70px;
+    font-size: 14px;
+    padding: 5px;
+    display: none;
+    @media (max-width: 900px) {
+      display: block;
+    }
   }
+  
+  @import "ToggleSwitch";
+  
+  div.toggle {
+    position: absolute;
+    z-index: 500;
+    left: 60px;
+    top: 10px;
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
+  
+  div#legend {
+    position: absolute;;
+    z-index: 6001;
+    right: 15px;
+    bottom: 15px;
+    font-size: 14px;
+    padding: 5px;
+    display: flex;
+    * {
+      margin-right: 5px;
+    }
+    div.swatch {
+      width: 20px;
+      height: 20px;
+      opacity: 0.4;
+    }
+  }
+  
 }
