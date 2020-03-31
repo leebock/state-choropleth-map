@@ -20,6 +20,7 @@
 	var FIELDNAME$STATEWIDE_CURFEW = "Statewide Curfew";
 	var FIELDNAME$1135_WAIVER_STATUS = "1135 Waiver Status";
 	var FIELDNAME$SHELTER_IN_PLACE_ORDER = "'Stay at Home' or Shelter in Place Order";
+	/*var FIELDNAME$PRIMARY_ELECTION = "Primary Election";*/
 	
 	var LEGEND_LUT = {};
 	
@@ -164,6 +165,11 @@
 				{status: true, color: "red", caption: "Yes"},
 				{status: false, color: "gray", caption: "No"}				
 			];
+			/*LEGEND_LUT[FIELDNAME$PRIMARY_ELECTION] = [
+				{status: "already held", color: "red", caption: "Already Held"},
+				{status: "on schedule", color: "orange", caption: "On Schedule"},
+				{status: "delayed / rescheduled", color: "gray", caption: "Delayed / Rescheduled"}
+			];*/
 			
 			$.each(
 				[
@@ -177,7 +183,8 @@
 					FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED,
 					FIELDNAME$STATEWIDE_CURFEW,
 					FIELDNAME$1135_WAIVER_STATUS,
-					FIELDNAME$SHELTER_IN_PLACE_ORDER
+					FIELDNAME$SHELTER_IN_PLACE_ORDER,
+					/*FIELDNAME$PRIMARY_ELECTION*/
 				],
 				function(index, value) {
 					$("<option>").val(value).text(value).appendTo($("select#category"));
@@ -284,6 +291,9 @@
 			case FIELDNAME$SHELTER_IN_PLACE_ORDER:
 				status = status.toLowerCase() === "yes";
 				break;
+			/*case FIELDNAME$PRIMARY_ELECTION:
+				status = status.toLowerCase();
+				break;*/
 			default:
 			 	//
 		}
