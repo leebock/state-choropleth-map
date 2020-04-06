@@ -13,13 +13,13 @@
 	var FIELDNAME$MAJOR_DISASTER_DECLARATION = "Major Disaster Declaration";
 	var FIELDNAME$NATIONAL_GUARD_ACTIVATION = "National Guard State Activation";
 	var FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS = "State Employee Travel Restrictions";
-	var FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS = "Statewide Limits on Gatherings";
+	var FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS = "Statewide Limits on Gatherings and Stay at Home Orders";
 	var FIELDNAME$STATEWIDE_SCHOOL_CLOSURES  = "Statewide School Closures";
 	var FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED = "Essential Business Designations Issued";
 	//var FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES = "Statewide Closure of Non-Essential Businesses";
 	var FIELDNAME$STATEWIDE_CURFEW = "Statewide Curfew";
 	var FIELDNAME$1135_WAIVER_STATUS = "1135 Waiver Status";
-	var FIELDNAME$SHELTER_IN_PLACE_ORDER = "'Stay at Home' or Shelter in Place Order";
+	//var FIELDNAME$SHELTER_IN_PLACE_ORDER = "'Stay at Home' or Shelter in Place Order";
 	/*var FIELDNAME$PRIMARY_ELECTION = "Primary Election";*/
 	var FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS = "Domestic Travel Limitations";
 	
@@ -161,11 +161,11 @@
 				{status: true, color: "blue", caption: "Approved"},
 				{status: false, color: "gray", caption: "No"}
 			];
-			LEGEND_LUT[FIELDNAME$SHELTER_IN_PLACE_ORDER] = [
+			/*LEGEND_LUT[FIELDNAME$SHELTER_IN_PLACE_ORDER] = [
 				{status: true, color: "red", caption: "Yes"},
 				{status: false, color: "gray", caption: "No"}				
 			];
-			/*LEGEND_LUT[FIELDNAME$PRIMARY_ELECTION] = [
+			LEGEND_LUT[FIELDNAME$PRIMARY_ELECTION] = [
 				{status: "already held", color: "red", caption: "Already Held"},
 				{status: "on schedule", color: "orange", caption: "On Schedule"},
 				{status: "delayed / rescheduled", color: "gray", caption: "Delayed / Rescheduled"}
@@ -188,8 +188,8 @@
 					FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED,
 					FIELDNAME$STATEWIDE_CURFEW,
 					FIELDNAME$1135_WAIVER_STATUS,
-					FIELDNAME$SHELTER_IN_PLACE_ORDER,
-					/*FIELDNAME$PRIMARY_ELECTION*/
+					/*FIELDNAME$SHELTER_IN_PLACE_ORDER,
+					FIELDNAME$PRIMARY_ELECTION*/
 					FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS
 				],
 				function(index, value) {
@@ -295,10 +295,10 @@
 			case FIELDNAME$1135_WAIVER_STATUS:
 				status = status.toLowerCase() === "approved";
 				break;
-			case FIELDNAME$SHELTER_IN_PLACE_ORDER:
+			/*case FIELDNAME$SHELTER_IN_PLACE_ORDER:
 				status = status.toLowerCase() === "yes";
 				break;
-			/*case FIELDNAME$PRIMARY_ELECTION:
+			case FIELDNAME$PRIMARY_ELECTION:
 				status = status.toLowerCase();
 				break;*/
 			case FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS:
