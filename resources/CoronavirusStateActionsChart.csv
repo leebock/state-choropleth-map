@@ -1,74 +1,73 @@
-﻿State,Emergency Declaration,Major Disaster Declaration,National Guard State Activation,State Employee Travel Restrictions,Statewide Limits on Gatherings,Statewide School Closures,Statewide Closure of Non-Essential Businesses,Statewide Closure of Some or All Non-Essential Businesses ,Essential Business Designations Issued,Statewide Curfew,1135 Waiver Status,Extension of Individual Income Tax Deadlines,Primary Election,"'Stay at Home' or Shelter in Place Order",Domestic Travel Limitations
-Alabama (AL),Yes,Request Approved,Yes,,Yes- 10 or more,Yes,"Closure Required - entertainment venues, athletic facilities, non-essential “close contact” service establishments, and non-essential retail stores Limited operations required - restaurants, bars, breweries",Yes,,Local,Approved,Yes- filing and payment,Already held,,
-Alaska (AK),Yes,,,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-ssential businesses Limited operations required - restaurants, bars, breweries, food trucks, self-service dining",Yes,Yes,,,N/A,On Schedule,,Yes - Executive Order
+﻿State,Emergency Declaration,Major Disaster Declaration,National Guard State Activation,State Employee Travel Restrictions,Statewide Limits on Gatherings and Stay at Home Orders,Statewide School Closures,Statewide Closure of Non-Essential Businesses,Statewide Closure of Some or All Non-Essential Businesses ,Essential Business Designations Issued,Statewide Curfew,1135 Waiver Status,Extension of Individual Income Tax Deadlines,Primary Election,Domestic Travel Limitations,Statewide Mask Policy
+Alabama (AL),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"Closure Required - entertainment venues, athletic facilities, non-essential “close contact” service establishments, and non-essential retail stores Limited operations required - restaurants, bars, breweries",Yes,,Local,Approved,Yes- filing and payment,Already held,,
+Alaska (AK),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-ssential businesses Limited operations required - restaurants, bars, breweries, food trucks, self-service dining",Yes,Yes,,Approved,N/A,Party-run primary delayed/rescheduled,Yes - Executive Order,
 American Samoa (AS),Yes,,,Yes,Yes- 5 or more,Yes,,,,,,,Already held,,
-Arizona (AZ),Yes,,Yes,,Yes- stay at home order,Yes,"Limited operations recommended- restaurants in counties with confirmed cases
+Arizona (AZ),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"Limited operations recommended- restaurants in counties with confirmed cases
 Closures recommended - bars, movie theaters, and gyms in counties with confirmed cases",,Yes,,Approved,Yes- filing and payment,Already held,,
-Arkansas (AR),Yes,,Yes,Yes,Yes- 10 or more,Yes,"Limited operations required - restaurants and bars Closure required - gyms, indoor entertainment venues",Yes,,Local,,Yes- filing and payment,Already held,,Yes -  Recommendation
+Arkansas (AR),Yes,Request Approved,Yes,Yes,Yes- 10 or more,Yes,"Limited operations required - restaurants and bars Closure required - gyms, indoor entertainment venues",Yes,,Local,Approved,Yes- filing and payment,Already held,Yes -  Recommendation,Recommendation
 California (CA),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"Closure recommended - bars, wineries, nightclubs and brewpubs                                         In-person workforce prohibited at all non-essential businesses ",Yes,Yes,Local,Approved,Yes- filing and payment,Already held,,
-CNMI (MP),Yes,Request Made,,,Yes- 10 or more,Yes,"Limited operations required - restaurants, bars, eateries",,,,,,Already held,,
-Colorado (CO),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required: bars, restaurants                    Closure required - gyms, theaters, casinos, ski resorts",Yes,Yes,,Approved,Yes- filing and payment,Already held,,
+CNMI (MP),Yes,Request Approved,,,"Yes- stay at home guidance
+*mandatory 10 person limit on public gatherings",Yes,"Limited operations required - restaurants, bars, eateries",,,,,,Already held,Yes - Executive Order,Recommendation
+Colorado (CO),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required: bars, restaurants                    Closure required - gyms, theaters, casinos, ski resorts",Yes,Yes,,Approved,Yes- filing and payment,Already held,,Recommendation
 Connecticut (CT),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"Closure required - gyms, fitness studios, movie theaters
-Limited operations required - restaurants ",Yes,Yes,,,Yes- filing and payment,Delayed/Rescheduled,,Yes -  Recommendation
-Delaware (DE),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at all non-essential businesses Closure required - bowling alleys, movie theaters, fitness centers, health spas
-Limited operations required - restaurants, brewpubs, taverns, taprooms",Yes,Yes,,,Yes- filing and payment,Delayed/Rescheduled,,Yes - Executive Order
-District of Columbia (DC),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at all non-essential businesses Limited operations required - restaurants, bars",Yes,Yes,,,Yes- filing and payment,On Schedule,,
-Florida (FL),Yes,Request Approved,Yes,Yes,Yes- stay at home order *for SE FL; stay at home guidance *for age 65+ only,Yes,"Limited operations required - restaurants, bars                        Closures required- gyms",Yes,,Local,Approved,N/A,Already held,,Yes - Executive Order
-Georgia (GA),Yes,Request Approved,Yes,Yes,"Yes- stay at home order
-*for medically fragile only; includes a 10 person limit to mass gatherings for all others",Yes,Closure required - bars,Yes,,Local,,Yes- filing and payment,Delayed/Rescheduled,,
-Guam (GU),Yes,Request Approved,Yes,Yes,Yes- unspecified,Yes,In-person workforce prohibited at non-essential businesses Limited operations required - hotels,Yes,Yes,,,Yes- filing and payment,On Schedule,,
-Hawaii (HI),Yes,,Yes,Yes,Yes- stay at home order,Yes,"Closure required - movie theaters, visitor attractions, and places of worship
-Closure or limited operations recommended - restaurants, tour companies",Yes,Yes,Local,Approved,Yes- filing and payment,On Schedule,,Yes - Executive Order
+Limited operations required - restaurants ",Yes,Yes,,Approved,Yes- filing and payment,Delayed/Rescheduled,Yes -  Recommendation,
+Delaware (DE),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at all non-essential businesses Closure required - bowling alleys, movie theaters, fitness centers, health spas
+Limited operations required - restaurants, brewpubs, taverns, taprooms",Yes,Yes,,Approved,Yes- filing and payment,Delayed/Rescheduled,Yes - Executive Order,
+District of Columbia (DC),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at all non-essential businesses Limited operations required - restaurants, bars",Yes,Yes,,Approved,Yes- filing and payment,On Schedule,,
+Florida (FL),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"Limited operations required - restaurants, bars                        Closures required- gyms",Yes,,Local,Approved,N/A,Already held,Yes - Executive Order,
+Georgia (GA),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,Closure required - bars,Yes,,Local,Approved,Yes- filing and payment,Delayed/Rescheduled,,
+Guam (GU),Yes,Request Approved,Yes,Yes,Yes- unspecified,Yes,In-person workforce prohibited at non-essential businesses Limited operations required - hotels,Yes,Yes,,,Yes- filing and payment,On Schedule,Yes - Executive Order,"Mandatory
+*essential business and government agency employees and patrons while on premises"
+Hawaii (HI),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"Closure required - movie theaters, visitor attractions, and places of worship
+Closure or limited operations recommended - restaurants, tour companies",Yes,Yes,Local,Approved,Yes- filing and payment,Party-run primary delayed/rescheduled,Yes - Executive Order,
 Idaho (ID),Yes,,Yes,,Yes- stay at home order,Yes,In-person workforce prohibited at non-essential businesses,Yes,Yes,,Approved,Yes- filing and payment,Already held,,
 Illinois (IL),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses     Limited operatios required - restaurants, bars",Yes,Yes,,Approved,Yes- filing and payment,Already held,,
-Indiana (IN),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars, nightclubs",Yes,Yes,,Approved,Yes- filing and payment,Delayed/Rescheduled,,
-Iowa (IA),Yes,Request Approved,Yes,,Yes- 10 or more,Local,"Closures required - spas, salons, pools",Yes,,,Approved,Yes- filing and payment,Primary on schedule; already held caucus,,
-Kansas (KS),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,In-person workforce prohibited at non-essential businesses,Yes,Yes,,Approved,Yes- filing and payment,On Schedule,,Yes - Executive Order
-Kentucky (KY),Yes,Request Approved,Yes,Yes,Yes- stay at home guidance,Yes,"Limited operations required: restaurants, bars Closure required - entertainment, hospitality and recreational facilities, community and recreation centers, gyms and exercise facilities, hair salons, nail salons, spas, concert venues, theaters, and sporting event facilities.",Yes,Yes,,Approved,Yes- filing and payment,Delayed/Rescheduled,,Yes - Executive Order
+Indiana (IN),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars, nightclubs",Yes,Yes,,Approved,Yes- filing and payment,Delayed/Rescheduled,,
+Iowa (IA),Yes,Request Approved,Yes,,Yes- 10 or more,Yes,"Closures required - spas, salons, pools",Yes,,,Approved,Yes- filing and payment,Primary on schedule; already held caucus,,
+Kansas (KS),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,In-person workforce prohibited at non-essential businesses,Yes,Yes,,Approved,Yes- filing and payment,On Schedule,Yes - Executive Order,
+Kentucky (KY),Yes,Request Approved,Yes,Yes,Yes- stay at home guidance,Yes,"Limited operations required: restaurants, bars Closure required - entertainment, hospitality and recreational facilities, community and recreation centers, gyms and exercise facilities, hair salons, nail salons, spas, concert venues, theaters, and sporting event facilities.",Yes,Yes,,Approved,Yes- filing and payment,Delayed/Rescheduled,Yes - Executive Order,
 Louisiana (LA),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses
 Limited operations required - restaurants",Yes,Yes,Local,Approved,Yes- filing and payment,Delayed/Rescheduled,,
-Maine (ME),Yes,,Yes,Yes,Yes- 10 or more,Local,"In-person workforce prohibited at non-essential public facing businesses     Limited operations required - restaurants, bars",Yes,Yes,Local,,Yes- filing and payment,Already held,,
-Maryland (MD),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,In-person workforce prohibited at non-essential businesses Limited operations required - restaurants,Yes,Yes,,Approved,Yes- filing and payment,Delayed/Rescheduled,,Yes -  Recommendation
+Maine (ME),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential public facing businesses     Limited operations required - restaurants, bars",Yes,Yes,Local,,Yes- filing and payment,Already held,Yes - Executive Order,
+Maryland (MD),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,In-person workforce prohibited at non-essential businesses Limited operations required - restaurants,Yes,Yes,,Approved,Yes- filing and payment,Delayed/Rescheduled,Yes -  Recommendation,
 Massachusetts (MA),Yes,Request Approved,Yes,Yes,"Yes- stay at home order
-*order for ages 70+; guidance for all others",Yes,In-person workforce prohibited at non-essential businesses Limited operations required - restaurants,Yes,Yes,,Approved,Yes- filing and payment,Already held,,Yes -  Recommendation
+*order for ages 70+; guidance for all others",Yes,In-person workforce prohibited at non-essential businesses Limited operations required - restaurants,Yes,Yes,,Approved,Yes- filing and payment,Already held,Yes -  Recommendation,
 Michigan (MI),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses
 Limited operations required - restaurants",Yes,Yes,,,,Already held,,
 Minnesota (MN),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses
-Limited operations required - restaurants",Yes,Yes,,,Yes- filing and payment,Already held,,
-Mississippi (MS),Yes,,Yes,,Yes- 10 or more,Yes,Limited Operations required - Restaurants,,Yes,Local,Approved,Yes- filing and payment,Already held,,
-Missouri (MO),Yes,Request Approved,Yes,,Yes- 10 or more,Yes,Limited operations required- restaurants     Closure required - casinos,Yes,,,Approved,Yes- filing and payment,Already held,,
-Montana (MT),Yes,Request Made,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required- restaurants     Closure required - fitness facilties, theaters, recreation facilities, casinos",Yes,Yes,,,Yes- filing and payment,On Schedule,,
-Nebraska (NE),Yes,,,,"Yes- 10 or more
-*For 14 counties only",Local,"Limited operations required - restaurants, bars",,,,,Yes- filing and payment,On Schedule,,Yes -  Recommendation
-Nevada (NV),Yes,,,,Yes- 10 or more,Yes,"Limited operations required - restaurants Closure required- Bars, casinos",Yes,Yes,,,N/A,Primary on schedule; already held caucus,,
-New Hampshire (NH),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businessesLimited operations required - restaurants, bars",Yes,Yes,,Approved,N/A,Primary on schedule; already held caucus,,
+Limited operations required - restaurants",Yes,Yes,,Approved,Yes- filing and payment,Already held,,
+Mississippi (MS),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,Limited Operations required - Restaurants,Yes,Yes,Local,Approved,Yes- filing and payment,Already held,,
+Missouri (MO),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,In-person workforce prohibited at non-essential businesses Limited operations required- restaurants     Closure required - casinos,Yes,Yes,Local,Approved,Yes- filing and payment,Already held,,
+Montana (MT),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required- restaurants     Closure required - fitness facilties, theaters, recreation facilities, casinos",Yes,Yes,,Approved,Yes- filing and payment,On Schedule,Yes - Executive Order,
+Nebraska (NE),Yes,Request Approved,,,Yes- 10 or more,Yes,"Limited operations required - restaurants, bars",,,,Approved,Yes- filing and payment,On Schedule,Yes -  Recommendation,
+Nevada (NV),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"Limited operations required - restaurants Closure required- Bars, casinos",Yes,Yes,,Approved,N/A,Primary on schedule; already held caucus,Yes -  Recommendation,Recommendation
+New Hampshire (NH),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businessesLimited operations required - restaurants, bars",Yes,Yes,,Approved,N/A,Primary on schedule; already held caucus,Yes -  Recommendation,
 New Jersey (NJ),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce at non-essential businesses encouraged to be limited Closure required - non-essential retail
 Limited operations required - restaurants, bars",Yes,Yes,Local,Approved,,On Schedule,,
-New Mexico (NM),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars, food establishments",Yes,Yes,,Approved,Yes- filing and payment,On Schedule,,Yes - Executive Order
+New Mexico (NM),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars, food establishments",Yes,Yes,,Approved,Yes- filing and payment,On Schedule,Yes - Executive Order,Recommendation
 New York (NY),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses
 Limited operations required - restaurants",Yes,Yes,Local,Approved,Yes- filing and payment,Delayed/Rescheduled,,
 North Carolina (NC),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars Closure required - gyms, theaters, bowling alleys, recreation facilities ",Yes,Yes,Local,Approved,Yes- filing and payment,Already held,,
-North Dakota (ND),Yes,Request Made,Yes,,,Yes,"Limited operation required – bars, restaurants Closure required: recreational facilities and entertainment venues.",Yes,,,Approved,Yes- filing and payment,On Schedule,,Yes - Executive Order
-Ohio (OH),Yes,Request Made,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars",Yes,Yes,,,Yes- filing and payment,Delayed/Rescheduled,,
-Oklahoma (OK),Yes,,,Yes,"Yes- stay at home
-*For most vulnerable population; includes a 10 person limit to mass gatherings for all others",Yes,"In-person workforce prohibited at non-essential businesses in counties with reported community spread Limited operations required - restaurants, bars",Yes,Yes,,Approved,Yes- filing and payment,Already held,,Yes - Executive Order
+North Dakota (ND),Yes,Request Approved,Yes,,Recommended,Yes,"Limited operation required – bars, restaurants Closure required: recreational facilities and entertainment venues.",Yes,,,Approved,Yes- filing and payment,Already held,Yes - Executive Order,
+Ohio (OH),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars",Yes,Yes,,,Yes- filing and payment,Delayed/Rescheduled,Yes -  Recommendation,Recommendation
+Oklahoma (OK),Yes,Request Approved,,Yes,"Yes- stay at home
+*For most vulnerable population; includes a 10 person limit to mass gatherings for all others",Yes,"In-person workforce prohibited at non-essential businesses in counties with reported community spread Limited operations required - restaurants, bars",Yes,Yes,,Approved,Yes- filing and payment,Already held,Yes - Executive Order,
 Oregon (OR),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"Limited operations required - restaurants, bars
 Closures required - recreational venies, spas, salons, theaters",Yes,Yes,,Approved,Yes- filing and payment,On Schedule,,
-Pennsylvania (PA),Yes,Request Approved,Yes,Yes,"Yes- stay at home order
-*For 26 counties only",Yes,"Required closures of all non-life-sustaining businesses
-Limited operations required – restaurants",Yes,Yes,,,Yes- filing and payment,Delayed/Rescheduled,,
-Puerto Rico (PR),Yes,Request Approved,Yes,,Yes- unspecified,Yes,Closure required - all nonessential business,Yes,Yes,Yes,,Yes- filing and payment,Delayed/Rescheduled,,Yes - Executive Order
-Rhode Island (RI),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"Closure required - non-essential businesses Limited operations required - restaurants, bars, entertainment venues",,,,Approved,Yes- filing and payment,Delayed/Rescheduled,,Yes - Executive Order
-South Carolina (SC),Yes,Request Approved,Yes,,Yes- 3 or more,Yes,"Limited operations required - restaurants, bars",,,Local,,Yes- filing and payment,On Schedule,,Yes -  Recommendation
-South Dakota (SD),Yes,,,Yes,Yes- 10 or more,Yes,"Suggested alternate operations - restaurants, businesses with telework capacity",,,,Approved,N/A,On Schedule,,
-Tennessee (TN),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars
-Closures required - recreational venues",Yes,Yes,,,Yes- filing and payment,Already held,,
-Texas (TX),Yes,Request Approved,Yes,,Yes- 10 or more,Yes,"Limited operations recommended - restaurants, bars, recreational venues",,,Local,,N/A,Already held,,Yes - Executive Order
-Utah (UT),Yes,,,,Yes- stay at home guidance,Yes,"Limited operations required - restaurants, bars",,,,,Yes- filing and payment,Already held,,
-Vermont (VT),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars",Yes,Yes,,,Yes- filing and payment,Already held,Yes,Yes - Executive Order
-Virginia (VA),Yes,,Yes,Yes,Yes- stay at home order,Yes,"Limited operations  required - restaurants Closure Required - fitness centers, theaters, other recreational facilities ",Yes,Yes,,Approved,Yes- payment only,Already held,Yes,Yes -  Recommendation
-Virgin Islands (USVI),Yes,,,,Yes- stay at home order,Yes,In-person workforce prohibited at non-essential businesses,Yes,Yes,,,,On Schedule,,
-Washington (WA),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses      Limited operations required - restaurants, bars",Yes,Yes,,Approved,N/A,Already held,Yes,
-West Virginia (WV),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses      Limited operations required - restaurants, bars",Yes,Yes,,,Yes- filing and payment,Already held,Yes,Yes - Executive Order
-Wisconsin (WI),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses      Limited operations required - restaurants, bars",Yes,Yes,,,Yes- filing and payment,On Schedule,Yes,Yes -  Recommendation
-Wyoming (WY),Yes,,Yes,,Yes- stay at home guidance,Yes,"Closure required - salons, recreational facilities, theaters, ",Yes,,,,N/A,On Schedule,,
+Pennsylvania (PA),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"Required closures of all non-life-sustaining businesses
+Limited operations required – restaurants",Yes,Yes,,Approved,Yes- filing and payment,Delayed/Rescheduled,,Recommendation
+Puerto Rico (PR),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,Closure required - all nonessential business,Yes,Yes,Yes,,Yes- filing and payment,Delayed/Rescheduled,Yes - Executive Order,
+Rhode Island (RI),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"Closure required - non-essential businesses Limited operations required - restaurants, bars, entertainment venues",,,,Approved,Yes- filing and payment,Delayed/Rescheduled,Yes - Executive Order,Recommendation
+South Carolina (SC),Yes,Request Approved,Yes,,Yes- 3 or more,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars",Yes,Yes,Local,Approved,Yes- filing and payment,Already held,Yes - Executive Order,
+South Dakota (SD),Yes,Request Approved,Yes,Yes,Yes- 10 or more,Yes,"Suggested alternate operations - restaurants, businesses with telework capacity",,,,Approved,N/A,On Schedule,,
+Tennessee (TN),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars
+Closures required - recreational venues",Yes,Yes,,Approved,Yes- filing and payment,Already held,,
+Texas (TX),Yes,Request Approved,Yes,,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations recommended - restaurants, bars, recreational venues",Yes,Yes,Local,Approved,N/A,Already held,Yes - Executive Order,
+Utah (UT),Yes,Request Approved,,,Yes- stay at home guidance,Yes,"Limited operations required - restaurants, bars",,,,,Yes- filing and payment,Already held,,
+Vermont (VT),Yes,,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses Limited operations required - restaurants, bars",Yes,Yes,,Approved,Yes- filing and payment,Already held,Yes - Executive Order,Recommendation
+Virgin Islands (USVI),Yes,Request Approved,,,Yes- stay at home order,Yes,In-person workforce prohibited at non-essential businesses,Yes,Yes,,,,On Schedule,,
+Virginia (VA),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"Limited operations  required - restaurants Closure Required - fitness centers, theaters, other recreational facilities ",Yes,Yes,,Approved,Yes- payment only,Already held,Yes -  Recommendation,Recommendation
+Washington (WA),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses      Limited operations required - restaurants, bars",Yes,Yes,,Approved,N/A,Already held,,
+West Virginia (WV),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses      Limited operations required - restaurants, bars",Yes,Yes,,Approved,Yes- filing and payment,Delayed/Rescheduled,Yes - Executive Order,
+Wisconsin (WI),Yes,Request Approved,Yes,Yes,Yes- stay at home order,Yes,"In-person workforce prohibited at non-essential businesses      Limited operations required - restaurants, bars",Yes,Yes,,,Yes- filing and payment,On Schedule,Yes -  Recommendation,
+Wyoming (WY),Yes,,Yes,,Yes- stay at home guidance,Yes,"Closure required - salons, recreational facilities, theaters, ",Yes,,,Approved,N/A,Party-run primary delayed/rescheduled,Yes - Executive Order,
