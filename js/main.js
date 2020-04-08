@@ -136,9 +136,8 @@
 				{status: false, color: "gray", caption: "No"}
 			];
 			LEGEND_LUT[FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS] = [
-				{status: "yes", color: "red", caption: "Yes"},
-				{status: "recommended", color: "orange", caption: "Recommended"},
-				{status: "no", color: "gray", caption: "No"}
+				{status: "order", color: "red", caption: "Stay at Home Order"},
+				{status: "other", color: "orange", caption: "Other"},
 			];			
 			LEGEND_LUT[FIELDNAME$STATEWIDE_SCHOOL_CLOSURES] = [
 				{status: true, color: "red", caption: "Yes"},
@@ -275,8 +274,7 @@
 				break;
 			case FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS:
 				status = status.toLowerCase();
-				status = status.substring(0,3) === "yes" ? "yes" :
-						 status.substring(0,3) === "rec" ? "recommended" : "no";
+				status = status.search("order") > -1 ? "order" : "other";
 				break;
 			case FIELDNAME$STATEWIDE_SCHOOL_CLOSURES:
 				status = status.toLowerCase() === "yes";
