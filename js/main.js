@@ -119,33 +119,6 @@
 			}
 		}
 	];
-
-	/*case FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES:
-		status = status.toLowerCase().search("closure required") > -1 ||
-				status.toLowerCase().search("closures required") > -1;
-		break;*/
-		/*case FIELDNAME$SHELTER_IN_PLACE_ORDER:
-			status = status.toLowerCase() === "yes";
-			break;
-		case FIELDNAME$PRIMARY_ELECTION:
-			status = status.toLowerCase();
-			break;*/
-
-	
-	/*
-	LEGEND_LUT[FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES] = [
-		{status: true, color: "red", caption: "Closure Required"},
-		{status: false, color: "gray", caption: "Other"}
-	];
-	LEGEND_LUT[FIELDNAME$SHELTER_IN_PLACE_ORDER] = [
-		{status: true, color: "red", caption: "Yes"},
-		{status: false, color: "gray", caption: "No"}				
-	];
-	LEGEND_LUT[FIELDNAME$PRIMARY_ELECTION] = [
-		{status: "already held", color: "red", caption: "Already Held"},
-		{status: "on schedule", color: "orange", caption: "On Schedule"},
-		{status: "delayed / rescheduled", color: "gray", caption: "Delayed / Rescheduled"}
-	];*/
 	
 	var _map;
 	var _featuresStates;
