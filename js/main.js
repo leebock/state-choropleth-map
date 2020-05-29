@@ -147,9 +147,7 @@
 				worldCopyJump: true
 			}
 		)
-			.addControl(L.control.attribution({position: 'bottomleft'}).addAttribution("Esri"))
-			.on("click", onMapClick)
-			.on("moveend", onExtentChange);
+			.addControl(L.control.attribution({position: 'bottomleft'}).addAttribution("Esri"));
 			
 		if (!L.Browser.mobile) {
 			L.easyButton({
@@ -312,12 +310,8 @@
 	}
 
 	/***************************************************************************
-	********************** EVENTS that affect selection ************************
+	*********************************** EVENTS  ********************************
 	***************************************************************************/
-
-	function onMapClick(e)
-	{
-	}
 	
 	function layer_onClick(e)
 	{
@@ -336,14 +330,6 @@
 					.html()											
 			)
 			.openOn(_map);		
-	}
-
-	/***************************************************************************
-	**************************** EVENTS (other) ********************************
-	***************************************************************************/
-
-	function onExtentChange()
-	{
 	}
 
 	/***************************************************************************
