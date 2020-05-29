@@ -5,23 +5,24 @@
 	//var WIDTH_THRESHOLD = 768;
 
 	var GLOBAL_CLASS_USETOUCH = "touch";
-	var SPREADSHEET_URL =  "resources/CoronavirusStateActionsChart.csv";	
+	var SERVICE_URL =  "https://services3.arcgis.com/EvmgEO8WtpouUbyD/ArcGIS/rest/services/Cornavirus_State_Actions_FL/FeatureServer/0";	
 	var GEOJSON_URL_STATES = "resources/Composite_CONUS_AK_HI_5.json";
 	
 	var FIELDNAME$STATE = "State";
-	var FIELDNAME$EMERGENCY_DECLARATION = "Emergency Declaration";
-	var FIELDNAME$MAJOR_DISASTER_DECLARATION = "Major Disaster Declaration";
-	var FIELDNAME$NATIONAL_GUARD_ACTIVATION = "National Guard State Activation";
-	var FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS = "State Employee Travel Restrictions";
-	var FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS = "Statewide Limits on Gatherings and Stay at Home Orders";
-	var FIELDNAME$STATEWIDE_SCHOOL_CLOSURES  = "Statewide School Closures";
-	var FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED = "Essential Business Designations Issued";
+	var FIELDNAME$STATE_ABBREVIATION = "STUSPS";
+	var FIELDNAME$EMERGENCY_DECLARATION = "Emergency_Declaration";
+	var FIELDNAME$MAJOR_DISASTER_DECLARATION = "MajorDisasterDeclaration";
+	var FIELDNAME$NATIONAL_GUARD_ACTIVATION = "National_Guard_State_Activation";
+	var FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS = "State_Employee_Travel_Restricti";
+	var FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS = "Gathering_Limits";
+	var FIELDNAME$STATEWIDE_SCHOOL_CLOSURES  = "Statewide_School_Closures";
+	var FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED = "Essential_Business_Designations";
 	//var FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES = "Statewide Closure of Non-Essential Businesses";
-	var FIELDNAME$STATEWIDE_CURFEW = "Statewide Curfew";
-	var FIELDNAME$1135_WAIVER_STATUS = "1135 Waiver Status";
+	var FIELDNAME$STATEWIDE_CURFEW = "Statewide_Curfew";
+	var FIELDNAME$1135_WAIVER_STATUS = "F1135_Waiver_Status";
 	//var FIELDNAME$SHELTER_IN_PLACE_ORDER = "'Stay at Home' or Shelter in Place Order";
 	/*var FIELDNAME$PRIMARY_ELECTION = "Primary Election";*/
-	var FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS = "Domestic Travel Limitations";
+	var FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS = "Domestic_Travel_Limitations";
 	
 	var LEGEND_LUT = {};
 	
@@ -69,15 +70,18 @@
 			}).addTo(_map);			
 		}
 
-		Papa.parse(
-			SPREADSHEET_URL, 
-			{
-				header: true,
-				download: true,
-				complete: function(data) {_records = data.data;finish();}
+		 $.getJSON(
+			 SERVICE_URL+"/query"+
+			"?where="+encodeURIComponent("1 = 1")+
+			"&outFields=*"+
+			"&returnGeometry=false"+
+			"&f=pjson", 
+			function(data) {
+				_records = $.map(data.features, function(value){return value.attributes;});
+				finish();
 			}
-		);
-		
+		 );		
+	  	
 		$.ajax({
 			url: GEOJSON_URL_STATES,
 			success: function(result) {_featuresStates = result.features;finish();}
@@ -98,7 +102,7 @@
 						var record = $.grep(
 							_records, 
 							function(value) {
-								return value[FIELDNAME$STATE]
+								return value[FIELDNAME$STATE_ABBREVIATION]
 										.split("(")
 										.pop()
 										.replace(")","") === 
@@ -136,7 +140,7 @@
 				{status: false, color: "gray", caption: "No"}
 			];
 			LEGEND_LUT[FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS] = [
-				{status: "order", color: "red", caption: "Stay at Home Order"},
+				{status: "yes", color: "red", caption: "Statewide limit"},
 				{status: "other", color: "orange", caption: "Other"},
 			];			
 			LEGEND_LUT[FIELDNAME$STATEWIDE_SCHOOL_CLOSURES] = [
@@ -274,10 +278,10 @@
 				break;
 			case FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS:
 				status = status.toLowerCase();
-				status = status.search("order") > -1 ? "order" : "other";
+				status = status.search("yes") > -1 ? "yes" : "other";
 				break;
 			case FIELDNAME$STATEWIDE_SCHOOL_CLOSURES:
-				status = status.toLowerCase() === "yes";
+				status = status.toLowerCase().search("yes") > -1 ? true : false;
 				break;
 			/*case FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES:
 				status = status.toLowerCase().search("closure required") > -1 ||
