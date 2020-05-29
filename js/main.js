@@ -24,7 +24,105 @@
 	/*var FIELDNAME$PRIMARY_ELECTION = "Primary Election";*/
 	var FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS = "Domestic_Travel_Limitations";
 	
-	var LEGEND_LUT = {};
+	var THEMES = [
+		{
+			field: FIELDNAME$EMERGENCY_DECLARATION, 
+			alias: "Emergency Declaration",
+			legend: [
+				{status: true, color: "red", caption: "Yes"},
+				{status: false, color: "gray", caption: "No"}
+			]
+		},
+		{
+			field: FIELDNAME$MAJOR_DISASTER_DECLARATION,
+			alias: "Major Disaster Declaration",
+			legend: [
+				{status: "Request Approved", color: "blue", caption: "Request Approved"},
+				{status: "Request Made", color: "yellow", caption: "Request Made"}
+			]
+		},
+		{
+			field: FIELDNAME$NATIONAL_GUARD_ACTIVATION,
+			alias: "National Guard Activation",
+			legend: [
+				{status: true, color: "blue", caption: "Yes"},
+				{status: false, color: "gray", caption: "No"}
+			]
+		},
+		{
+			field: FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS,
+			alias: "State Employee Travel Restrictions",
+			legend: [
+				{status: true, color: "red", caption: "Yes"},
+				{status: false, color: "gray", caption: "No"}
+			]
+		},
+		{
+			field: FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS,
+			alias: "Statewide Limits on Gatherings",
+			legend: [
+				{status: "yes", color: "red", caption: "Statewide limit"},
+				{status: "other", color: "orange", caption: "Other"},
+			]
+		},
+		{
+			field: FIELDNAME$STATEWIDE_SCHOOL_CLOSURES,
+			alias: "Statewide School Closures",
+			legend: [
+				{status: true, color: "red", caption: "Yes"},
+				{status: false, color: "gray", caption: "No"}
+			]
+		},
+		{
+			field: FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED,
+			alias: "Essential Business Designations Issued",
+			legend: [
+				{status: true, color: "red", caption: "Yes"},
+				{status: false, color: "gray", caption: "No"}
+			]
+		},
+		{
+			field: FIELDNAME$STATEWIDE_CURFEW,
+			alias: "Statewide Curfew",
+			legend: [
+				{status: "yes", color: "red", caption: "Yes"},
+				{status: "local", color: "orange", caption: "Local"},
+				{status: "none", color: "gray", caption: "None"}
+			]
+		},
+		{
+			field: FIELDNAME$1135_WAIVER_STATUS,
+			alias: "1135 Waiver Status",
+			legend: [
+				{status: true, color: "blue", caption: "Approved"},
+				{status: false, color: "gray", caption: "No"}
+			]
+		},
+		{
+			field: FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS,
+			alias: "Domestic Travel Limitations",
+			legend: [
+				{status: "executive order", color: "red", caption: "Executive Order"},
+				{status: "recommendation", color: "orange", caption: "Recommendation"},
+				{status: "none", color: "gray", caption: "None"}				
+			]
+		}
+	];
+	
+	/*
+	LEGEND_LUT[FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES] = [
+		{status: true, color: "red", caption: "Closure Required"},
+		{status: false, color: "gray", caption: "Other"}
+	];
+	LEGEND_LUT[FIELDNAME$SHELTER_IN_PLACE_ORDER] = [
+		{status: true, color: "red", caption: "Yes"},
+		{status: false, color: "gray", caption: "No"}				
+	];
+	LEGEND_LUT[FIELDNAME$PRIMARY_ELECTION] = [
+		{status: "already held", color: "red", caption: "Already Held"},
+		{status: "on schedule", color: "orange", caption: "On Schedule"},
+		{status: "delayed / rescheduled", color: "gray", caption: "Delayed / Rescheduled"}
+	];*/
 	
 	var _map;
 	var _featuresStates;
@@ -123,91 +221,21 @@
 				function(){$("html body").addClass(GLOBAL_CLASS_USETOUCH);}
 			);
 			
-			LEGEND_LUT[FIELDNAME$EMERGENCY_DECLARATION] = [
-				{status: true, color: "red", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}
-			];
-			LEGEND_LUT[FIELDNAME$MAJOR_DISASTER_DECLARATION] = [
-				{status: "Request Approved", color: "blue", caption: "Request Approved"},
-				{status: "Request Made", color: "yellow", caption: "Request Made"}
-			];
-			LEGEND_LUT[FIELDNAME$NATIONAL_GUARD_ACTIVATION] = [
-				{status: true, color: "blue", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}
-			];
-			LEGEND_LUT[FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS] = [
-				{status: true, color: "red", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}
-			];
-			LEGEND_LUT[FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS] = [
-				{status: "yes", color: "red", caption: "Statewide limit"},
-				{status: "other", color: "orange", caption: "Other"},
-			];			
-			LEGEND_LUT[FIELDNAME$STATEWIDE_SCHOOL_CLOSURES] = [
-				{status: true, color: "red", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}
-			];
-			/*LEGEND_LUT[FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES] = [
-				{status: true, color: "red", caption: "Closure Required"},
-				{status: false, color: "gray", caption: "Other"}
-			];*/
-			LEGEND_LUT[FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED] = [
-				{status: true, color: "red", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}
-			];
-			LEGEND_LUT[FIELDNAME$STATEWIDE_CURFEW] = [
-				{status: "yes", color: "red", caption: "Yes"},
-				{status: "local", color: "orange", caption: "Local"},
-				{status: "none", color: "gray", caption: "None"}
-			];
-			LEGEND_LUT[FIELDNAME$1135_WAIVER_STATUS] = [
-				{status: true, color: "blue", caption: "Approved"},
-				{status: false, color: "gray", caption: "No"}
-			];
-			/*LEGEND_LUT[FIELDNAME$SHELTER_IN_PLACE_ORDER] = [
-				{status: true, color: "red", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}				
-			];
-			LEGEND_LUT[FIELDNAME$PRIMARY_ELECTION] = [
-				{status: "already held", color: "red", caption: "Already Held"},
-				{status: "on schedule", color: "orange", caption: "On Schedule"},
-				{status: "delayed / rescheduled", color: "gray", caption: "Delayed / Rescheduled"}
-			];*/
-			LEGEND_LUT[FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS] = [
-				{status: "executive order", color: "red", caption: "Executive Order"},
-				{status: "recommendation", color: "orange", caption: "Recommendation"},
-				{status: "none", color: "gray", caption: "None"}				
-			];
-			
 			$.each(
-				[
-					FIELDNAME$MAJOR_DISASTER_DECLARATION, 
-					FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS,
-					FIELDNAME$EMERGENCY_DECLARATION, 
-					FIELDNAME$NATIONAL_GUARD_ACTIVATION, 
-					FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS,
-					FIELDNAME$STATEWIDE_SCHOOL_CLOSURES,
-					/*FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES,*/
-					FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED,
-					FIELDNAME$STATEWIDE_CURFEW,
-					FIELDNAME$1135_WAIVER_STATUS,
-					/*FIELDNAME$SHELTER_IN_PLACE_ORDER,
-					FIELDNAME$PRIMARY_ELECTION*/
-					FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS
-				],
-				function(index, value) {
-					$("<option>").val(value).text(value).appendTo($("select#category"));
+				THEMES,
+				function(index, theme) {
+					$("<option>").val(theme.field).text(theme.alias).appendTo($("select#category"));
 					$("<input>")
 						.attr({
 							"type": "radio", 
 							"name": "category", 
-							"value": value, "id": 
-							"radio-"+index
+							"value": theme.field, 
+							"id": "radio-"+index
 						})
 						.appendTo($("div.toggle"));
 					$("<label>")
 						.attr("for", "radio-"+index)
-						.text(value)
+						.text(theme.alias)
 						.appendTo($("div.toggle"));
 				}
 			);
@@ -244,7 +272,10 @@
 	function createLegend()
 	{
 		$("div#legend").empty();
-		var legend = LEGEND_LUT[$("select#category").val()];
+		var legend = $.grep(
+			THEMES, 
+			function(value){return value.field === $("select#category").val();}
+		).shift().legend;			
 		$.each(
 			legend,
 			function(index, value) {
@@ -263,7 +294,10 @@
 		}
 		
 		var category = $("select#category").val();
-		var legend = LEGEND_LUT[category];			
+		var legend = $.grep(
+			THEMES, 
+			function(value){return value.field === category;}
+		).shift().legend;			
 		var status = feature.extraProperties[category].trim();
 		
 		switch(category) {
