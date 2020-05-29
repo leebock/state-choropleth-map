@@ -190,7 +190,30 @@
 			_layerStates = L.geoJSON(
 				_featuresStates,
 				{
-					style: createStyle,
+					style: function(feature) {
+						if (!feature.extraProperties) {
+							return null;
+						}
+						var legend = _theme.legend;			
+						var status = _theme.testFunc(feature.extraProperties[_theme.field].trim());
+						
+						var item = $.grep(
+							legend, 
+							function(value) {
+								return value.status === status;
+							}
+						).shift();
+				
+						var color = !item ? null : item.color;
+				
+						return {
+							fillColor: color || "gray", 
+							fillOpacity: 0.4,
+							color: "gray", 
+							opacity: 1, 
+							weight: 1							
+						};						
+					},
 					onEachFeature: function(feature, layer) {
 						var record = $.grep(
 							_records, 
@@ -279,34 +302,6 @@
 					.append($("<div>").addClass("caption").text(value.caption));
 			}
 		);
-	}
-
-	function createStyle(feature)
-	{
-		
-		if (!feature.extraProperties) {
-			return null;
-		}
-		var legend = _theme.legend;			
-		var status = _theme.testFunc(feature.extraProperties[_theme.field].trim());
-		
-		var item = $.grep(
-			legend, 
-			function(value) {
-				return value.status === status;
-			}
-		).shift();
-
-		var color = !item ? null : item.color;
-
-		return {
-			fillColor: color || "gray", 
-			fillOpacity: 0.4,
-			color: "gray", 
-			opacity: 1, 
-			weight: 1							
-		};
-		
 	}
 
 	/***************************************************************************
