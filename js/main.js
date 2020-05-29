@@ -10,23 +10,10 @@
 	
 	var FIELDNAME$STATE = "State";
 	var FIELDNAME$STATE_ABBREVIATION = "STUSPS";
-	var FIELDNAME$EMERGENCY_DECLARATION = "Emergency_Declaration";
-	var FIELDNAME$MAJOR_DISASTER_DECLARATION = "MajorDisasterDeclaration";
-	var FIELDNAME$NATIONAL_GUARD_ACTIVATION = "National_Guard_State_Activation";
-	var FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS = "State_Employee_Travel_Restricti";
-	var FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS = "Gathering_Limits";
-	var FIELDNAME$STATEWIDE_SCHOOL_CLOSURES  = "Statewide_School_Closures";
-	var FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED = "Essential_Business_Designations";
-	//var FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES = "Statewide Closure of Non-Essential Businesses";
-	var FIELDNAME$STATEWIDE_CURFEW = "Statewide_Curfew";
-	var FIELDNAME$1135_WAIVER_STATUS = "F1135_Waiver_Status";
-	//var FIELDNAME$SHELTER_IN_PLACE_ORDER = "'Stay at Home' or Shelter in Place Order";
-	/*var FIELDNAME$PRIMARY_ELECTION = "Primary Election";*/
-	var FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS = "Domestic_Travel_Limitations";
 	
 	var THEMES = [
 		{
-			field: FIELDNAME$EMERGENCY_DECLARATION, 
+			field: "Emergency_Declaration", 
 			alias: "Emergency Declaration",
 			legend: [
 				{status: true, color: "red", caption: "Yes"},
@@ -35,7 +22,7 @@
 			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
-			field: FIELDNAME$MAJOR_DISASTER_DECLARATION,
+			field: "MajorDisasterDeclaration",
 			alias: "Major Disaster Declaration",
 			legend: [
 				{status: "Request Approved", color: "blue", caption: "Request Approved"},
@@ -44,7 +31,7 @@
 			testFunc: function(value){return value;}
 		},
 		{
-			field: FIELDNAME$NATIONAL_GUARD_ACTIVATION,
+			field: "National_Guard_State_Activation",
 			alias: "National Guard Activation",
 			legend: [
 				{status: true, color: "blue", caption: "Yes"},
@@ -53,7 +40,7 @@
 			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
-			field: FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS,
+			field: "State_Employee_Travel_Restricti",
 			alias: "State Employee Travel Restrictions",
 			legend: [
 				{status: true, color: "red", caption: "Yes"},
@@ -62,7 +49,7 @@
 			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
-			field: FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS,
+			field: "Gathering_Limits",
 			alias: "Statewide Limits on Gatherings",
 			legend: [
 				{status: "yes", color: "red", caption: "Statewide limit"},
@@ -73,7 +60,7 @@
 			}
 		},
 		{
-			field: FIELDNAME$STATEWIDE_SCHOOL_CLOSURES,
+			field: "Statewide_School_Closures",
 			alias: "Statewide School Closures",
 			legend: [
 				{status: true, color: "red", caption: "Yes"},
@@ -84,7 +71,7 @@
 			}
 		},
 		{
-			field: FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED,
+			field: "Essential_Business_Designations",
 			alias: "Essential Business Designations Issued",
 			legend: [
 				{status: true, color: "red", caption: "Yes"},
@@ -93,7 +80,7 @@
 			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
-			field: FIELDNAME$STATEWIDE_CURFEW,
+			field: "Statewide_Curfew",
 			alias: "Statewide Curfew",
 			legend: [
 				{status: "yes", color: "red", caption: "Yes"},
@@ -107,7 +94,7 @@
 			}
 		},
 		{
-			field: FIELDNAME$1135_WAIVER_STATUS,
+			field: "F1135_Waiver_Status",
 			alias: "1135 Waiver Status",
 			legend: [
 				{status: true, color: "blue", caption: "Approved"},
@@ -116,7 +103,7 @@
 			testFunc: function(value){return value.toLowerCase() === "approved";}
 		},
 		{
-			field: FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS,
+			field: "Domestic_Travel_Limitations",
 			alias: "Domestic Travel Limitations",
 			legend: [
 				{status: "executive order", color: "red", caption: "Executive Order"},
