@@ -150,6 +150,7 @@
 	var _map;
 	var _featuresStates;
 	var _layerStates;
+	var _theme;
 
 	var _records;	
 	
@@ -287,7 +288,11 @@
 	
 	function processCategoryChange()
 	{
-		_map.closePopup();		
+		_map.closePopup();
+		_theme = $.grep(
+			THEMES, 
+			function(value){return value.field === $("select#category").val();}
+		).shift();		
 		createLegend();
 		_layerStates.eachLayer(function(layer){_layerStates.resetStyle(layer);});			
 	}
@@ -295,12 +300,8 @@
 	function createLegend()
 	{
 		$("div#legend").empty();
-		var legend = $.grep(
-			THEMES, 
-			function(value){return value.field === $("select#category").val();}
-		).shift().legend;			
 		$.each(
-			legend,
+			_theme.legend,
 			function(index, value) {
 				$("div#legend")
 					.append($("<div>").addClass("swatch").css("background-color", value.color))
@@ -315,14 +316,8 @@
 		if (!feature.extraProperties) {
 			return null;
 		}
-		
-		var category = $("select#category").val();
-		var theme = $.grep(
-			THEMES, 
-			function(value){return value.field === category;}
-		).shift();
-		var legend = theme.legend;			
-		var status = theme.testFunc(feature.extraProperties[category].trim());
+		var legend = _theme.legend;			
+		var status = _theme.testFunc(feature.extraProperties[_theme.field].trim());
 		
 		var item = $.grep(
 			legend, 
@@ -354,8 +349,7 @@
 	function layer_onClick(e)
 	{
 		$(".leaflet-tooltip").remove();
-		var category = $("select#category").val();
-		var content = e.target.feature.extraProperties[category].trim();
+		var content = e.target.feature.extraProperties[_theme.field].trim();
 		L.popup({closeButton: false})
 			.setLatLng(e.latlng)
 			.setContent(
