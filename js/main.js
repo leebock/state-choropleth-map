@@ -31,7 +31,8 @@
 			legend: [
 				{status: true, color: "red", caption: "Yes"},
 				{status: false, color: "gray", caption: "No"}
-			]
+			],
+			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
 			field: FIELDNAME$MAJOR_DISASTER_DECLARATION,
@@ -39,7 +40,8 @@
 			legend: [
 				{status: "Request Approved", color: "blue", caption: "Request Approved"},
 				{status: "Request Made", color: "yellow", caption: "Request Made"}
-			]
+			],
+			testFunc: function(value){return value;}
 		},
 		{
 			field: FIELDNAME$NATIONAL_GUARD_ACTIVATION,
@@ -47,7 +49,8 @@
 			legend: [
 				{status: true, color: "blue", caption: "Yes"},
 				{status: false, color: "gray", caption: "No"}
-			]
+			],
+			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
 			field: FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS,
@@ -55,7 +58,8 @@
 			legend: [
 				{status: true, color: "red", caption: "Yes"},
 				{status: false, color: "gray", caption: "No"}
-			]
+			],
+			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
 			field: FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS,
@@ -63,7 +67,10 @@
 			legend: [
 				{status: "yes", color: "red", caption: "Statewide limit"},
 				{status: "other", color: "orange", caption: "Other"},
-			]
+			],
+			testFunc: function(value) {
+				return value.toLowerCase().search("yes") > -1 ? "yes" : "other";
+			}
 		},
 		{
 			field: FIELDNAME$STATEWIDE_SCHOOL_CLOSURES,
@@ -71,7 +78,10 @@
 			legend: [
 				{status: true, color: "red", caption: "Yes"},
 				{status: false, color: "gray", caption: "No"}
-			]
+			],
+			testFunc: function(value) {
+				return value.toLowerCase().search("yes") > -1 ? true : false;
+			}
 		},
 		{
 			field: FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED,
@@ -79,7 +89,8 @@
 			legend: [
 				{status: true, color: "red", caption: "Yes"},
 				{status: false, color: "gray", caption: "No"}
-			]
+			],
+			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
 			field: FIELDNAME$STATEWIDE_CURFEW,
@@ -88,7 +99,12 @@
 				{status: "yes", color: "red", caption: "Yes"},
 				{status: "local", color: "orange", caption: "Local"},
 				{status: "none", color: "gray", caption: "None"}
-			]
+			],
+			testFunc: function(value) {
+				return value.toLowerCase() === "yes" ? 
+						"yes" :
+						value.toLowerCase() === "local" ? "local" : "none";
+			}
 		},
 		{
 			field: FIELDNAME$1135_WAIVER_STATUS,
@@ -96,7 +112,8 @@
 			legend: [
 				{status: true, color: "blue", caption: "Approved"},
 				{status: false, color: "gray", caption: "No"}
-			]
+			],
+			testFunc: function(value){return value.toLowerCase() === "approved";}
 		},
 		{
 			field: FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS,
@@ -105,9 +122,28 @@
 				{status: "executive order", color: "red", caption: "Executive Order"},
 				{status: "recommendation", color: "orange", caption: "Recommendation"},
 				{status: "none", color: "gray", caption: "None"}				
-			]
+			],
+			testFunc: function(value) {
+				return value.toLowerCase().search("executive") > -1 ? 
+							"executive order" :
+							value.toLowerCase().search("recommendation") > -1 ? 
+								"recommendation" : 
+								"none";
+			}
 		}
 	];
+
+	/*case FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES:
+		status = status.toLowerCase().search("closure required") > -1 ||
+				status.toLowerCase().search("closures required") > -1;
+		break;*/
+		/*case FIELDNAME$SHELTER_IN_PLACE_ORDER:
+			status = status.toLowerCase() === "yes";
+			break;
+		case FIELDNAME$PRIMARY_ELECTION:
+			status = status.toLowerCase();
+			break;*/
+
 	
 	/*
 	LEGEND_LUT[FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES] = [
@@ -294,57 +330,13 @@
 		}
 		
 		var category = $("select#category").val();
-		var legend = $.grep(
+		var theme = $.grep(
 			THEMES, 
 			function(value){return value.field === category;}
-		).shift().legend;			
-		var status = feature.extraProperties[category].trim();
+		).shift();
+		var legend = theme.legend;			
+		var status = theme.testFunc(feature.extraProperties[category].trim());
 		
-		switch(category) {
-			case FIELDNAME$EMERGENCY_DECLARATION:
-				status = status.toLowerCase() === "yes";
-				break;
-			case FIELDNAME$NATIONAL_GUARD_ACTIVATION:
-				status = status.toLowerCase() === "yes";
-				break;
-			case FIELDNAME$STATE_EMPLOYEE_TRAVEL_RESTRICTIONS:
-				status = status.toLowerCase() === "yes";
-				break;
-			case FIELDNAME$STATEWIDE_LIMITS_ON_GATHERINGS:
-				status = status.toLowerCase();
-				status = status.search("yes") > -1 ? "yes" : "other";
-				break;
-			case FIELDNAME$STATEWIDE_SCHOOL_CLOSURES:
-				status = status.toLowerCase().search("yes") > -1 ? true : false;
-				break;
-			/*case FIELDNAME$STATEWIDE_CLOSURE_NONESSENTIAL_BUSINESSES:
-				status = status.toLowerCase().search("closure required") > -1 ||
-						status.toLowerCase().search("closures required") > -1;
-				break;*/
-			case FIELDNAME$ESSENTIAL_BUSINESS_DESIGNATIONS_ISSUED:
-				status = status.toLowerCase() === "yes";
-				break;
-			case FIELDNAME$STATEWIDE_CURFEW:
-				status = status.toLowerCase() === "yes" ? "yes" :
-						 status.toLowerCase() === "local" ? "local" : "none";
-				break;
-			case FIELDNAME$1135_WAIVER_STATUS:
-				status = status.toLowerCase() === "approved";
-				break;
-			/*case FIELDNAME$SHELTER_IN_PLACE_ORDER:
-				status = status.toLowerCase() === "yes";
-				break;
-			case FIELDNAME$PRIMARY_ELECTION:
-				status = status.toLowerCase();
-				break;*/
-			case FIELDNAME$DOMESTIC_TRAVEL_LIMITATIONS:
-				status = status.toLowerCase().search("executive") > -1 ? "executive order" :
-						 status.toLowerCase().search("recommendation") > -1 ? "recommendation" : "none";
-				break;
-			default:
-			 	//
-		}
-
 		var item = $.grep(
 			legend, 
 			function(value) {
