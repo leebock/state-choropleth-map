@@ -232,7 +232,10 @@
 							}
 						).shift();
 						feature.extraProperties = record;
-						layer.bindTooltip(feature.properties["State abbreviation"]);
+						layer.bindTooltip(
+							feature.properties["State abbreviation"],
+							{sticky: true}
+						);
 						layer.on("click", layer_onClick);						
 					}
 				}

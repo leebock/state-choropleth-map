@@ -154,12 +154,19 @@ a, button {
     display: flex;
     
     & > li {
+      
       border-style: solid;
       border-width: 1px;
       border-radius: 5px;
       padding-right: 5px;
       padding-left: 5px;
       margin-right: 5px;
+      
+      -webkit-user-select: none;  
+      -moz-user-select: none;    
+      -ms-user-select: none;      
+      user-select: none;      
+      
     }
 
   }
