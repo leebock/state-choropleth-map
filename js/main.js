@@ -11,13 +11,19 @@
 	var FIELDNAME$STATE = "State";
 	var FIELDNAME$STATE_ABBREVIATION = "STUSPS";
 	
+	var RGB_COLOR_RED = "rgba(255,0,0,0.4)";
+	var RGB_COLOR_GRAY = "rgba(220,200,220,0.4)";
+	var RGB_COLOR_BLUE = "rgba(0,0,0255,0.4)";
+	var RGB_COLOR_YELLOW = "rgba(255,255,0,0.4)";
+	var RGB_COLOR_ORANGE = "rgb(255,165,0,0.4)";
+	
 	var THEMES = [
 		{
 			field: "Emergency_Declaration", 
 			alias: "Emergency Declaration",
 			legend: [
-				{status: true, color: "red", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}
+				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
+				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
 			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
@@ -25,8 +31,8 @@
 			field: "MajorDisasterDeclaration",
 			alias: "Major Disaster Declaration",
 			legend: [
-				{status: "Request Approved", color: "blue", caption: "Request Approved"},
-				{status: "Request Made", color: "yellow", caption: "Request Made"}
+				{status: "Request Approved", color: RGB_COLOR_BLUE, caption: "Request Approved"},
+				{status: "Request Made", color: RGB_COLOR_YELLOW, caption: "Request Made"}
 			],
 			testFunc: function(value){return value;}
 		},
@@ -34,8 +40,8 @@
 			field: "National_Guard_State_Activation",
 			alias: "National Guard Activation",
 			legend: [
-				{status: true, color: "blue", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}
+				{status: true, color: RGB_COLOR_BLUE, caption: "Yes"},
+				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
 			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
@@ -43,8 +49,8 @@
 			field: "State_Employee_Travel_Restricti",
 			alias: "State Employee Travel Restrictions",
 			legend: [
-				{status: true, color: "red", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}
+				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
+				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
 			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
@@ -52,8 +58,8 @@
 			field: "Gathering_Limits",
 			alias: "Statewide Limits on Gatherings",
 			legend: [
-				{status: "yes", color: "red", caption: "Statewide limit"},
-				{status: "other", color: "orange", caption: "Other"},
+				{status: "yes", color: RGB_COLOR_RED, caption: "Statewide limit"},
+				{status: "other", color: RGB_COLOR_ORANGE, caption: "Other"},
 			],
 			testFunc: function(value) {
 				return value.toLowerCase().search("yes") > -1 ? "yes" : "other";
@@ -63,8 +69,8 @@
 			field: "Statewide_School_Closures",
 			alias: "Statewide School Closures",
 			legend: [
-				{status: true, color: "red", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}
+				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
+				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
 			testFunc: function(value) {
 				return value.toLowerCase().search("yes") > -1 ? true : false;
@@ -74,8 +80,8 @@
 			field: "Essential_Business_Designations",
 			alias: "Essential Business Designations Issued",
 			legend: [
-				{status: true, color: "red", caption: "Yes"},
-				{status: false, color: "gray", caption: "No"}
+				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
+				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
 			testFunc: function(value){return value.toLowerCase() === "yes";}
 		},
@@ -83,9 +89,9 @@
 			field: "Statewide_Curfew",
 			alias: "Statewide Curfew",
 			legend: [
-				{status: "yes", color: "red", caption: "Yes"},
-				{status: "local", color: "orange", caption: "Local"},
-				{status: "none", color: "gray", caption: "None"}
+				{status: "yes", color: RGB_COLOR_RED, caption: "Yes"},
+				{status: "local", color: RGB_COLOR_ORANGE, caption: "Local"},
+				{status: "none", color: RGB_COLOR_GRAY, caption: "None"}
 			],
 			testFunc: function(value) {
 				return value.toLowerCase() === "yes" ? 
@@ -97,8 +103,8 @@
 			field: "F1135_Waiver_Status",
 			alias: "1135 Waiver Status",
 			legend: [
-				{status: true, color: "blue", caption: "Approved"},
-				{status: false, color: "gray", caption: "No"}
+				{status: true, color: RGB_COLOR_BLUE, caption: "Approved"},
+				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
 			testFunc: function(value){return value.toLowerCase() === "approved";}
 		},
@@ -106,9 +112,9 @@
 			field: "Domestic_Travel_Limitations",
 			alias: "Domestic Travel Limitations",
 			legend: [
-				{status: "executive order", color: "red", caption: "Executive Order"},
-				{status: "recommendation", color: "orange", caption: "Recommendation"},
-				{status: "none", color: "gray", caption: "None"}				
+				{status: "executive order", color: RGB_COLOR_RED, caption: "Executive Order"},
+				{status: "recommendation", color: RGB_COLOR_ORANGE, caption: "Recommendation"},
+				{status: "none", color: RGB_COLOR_GRAY, caption: "None"}				
 			],
 			testFunc: function(value) {
 				return value.toLowerCase().search("executive") > -1 ? 
@@ -208,7 +214,7 @@
 				
 						return {
 							fillColor: color || "gray", 
-							fillOpacity: 0.4,
+							fillOpacity: 1,
 							color: "gray", 
 							opacity: 1, 
 							weight: 1							
@@ -232,6 +238,33 @@
 				}
 			).addTo(_map);
 
+			// associate each of the territory rectangles w/ corresponding data
+			
+			$.each(
+				_records, 
+				function(index, value) {
+					switch (value[FIELDNAME$STATE_ABBREVIATION]) {
+						case "AS":
+							$("ul#territories li#american-samoa").data("record", value);
+							break;
+						case "GU":
+							$("ul#territories li#guam").data("record", value);
+							break;
+						case "MP":
+							$("ul#territories li#northern-marianas").data("record", value);
+							break;
+						case "PR":
+							$("ul#territories li#puerto-rico").data("record", value);
+							break;
+						case "VI":
+							$("ul#territories li#virgin-islands").data("record", value);
+							break;
+						default:
+							
+					}
+				}
+			);
+			
 			// one time check to see if touch is being used
 
 			$(document).one(
@@ -288,6 +321,7 @@
 			function(value){return value.field === $("select#category").val();}
 		).shift();		
 		createLegend();
+		styleTerritories();
 		_layerStates.eachLayer(function(layer){_layerStates.resetStyle(layer);});			
 	}
 	
@@ -300,6 +334,29 @@
 				$("div#legend")
 					.append($("<div>").addClass("swatch").css("background-color", value.color))
 					.append($("<div>").addClass("caption").text(value.caption));
+			}
+		);
+	}
+	
+	function styleTerritories()
+	{
+		var legend = _theme.legend;			
+		$.each(
+			$("ul#territories li"), 
+			function(index, value) {
+				var record = $(value).data("record"); 
+				var status = _theme.testFunc(record[_theme.field].trim());
+				
+				var item = $.grep(
+					legend, 
+					function(value) {
+						return value.status === status;
+					}
+				).shift();
+		
+				var color = !item ? null : item.color;
+				$(this).css("background-color", color);
+
 			}
 		);
 	}

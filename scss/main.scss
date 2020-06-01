@@ -135,4 +135,33 @@ a, button {
     }
   }
   
+  ul#territories {
+    list-style-type: none;   
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+    -moz-margin-start: 0px;
+    -moz-margin-end: 0px;
+    -moz-padding-start: 0px;
+    -moz-padding-end: 0px;
+    
+    position: absolute;
+    bottom: 15px;
+    left: 80px;
+    
+    display: flex;
+    
+    & > li {
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 5px;
+      padding-right: 5px;
+      padding-left: 5px;
+      margin-right: 5px;
+    }
+
+  }
+  
 }
