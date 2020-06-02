@@ -231,6 +231,7 @@ a, button {
   position: absolute;
   bottom: 15px;
   left: 80px;
+  z-index: 1000;
   display: flex;
 }
 #main ul#territories > li {

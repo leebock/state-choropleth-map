@@ -267,6 +267,29 @@
 					}
 				}
 			);
+			$("ul#territories li").mouseover(
+				function(event){
+					var x = parseInt($(this).parent().position().left) + 
+							$(this).position().left + 
+							$(this).outerWidth()/2;
+					var y = parseInt($(this).parent().position().top);
+					if ($(".toggle").css("display") !== "none") {
+						y = y - $(".toggle").outerHeight();
+					}
+					_map.openTooltip(
+						$(this).data("record")[FIELDNAME$STATE_ABBREVIATION], 
+						_map.containerPointToLatLng(L.point(x, y)),
+						{offset: L.point(0,-15), direction: "top"}
+					);
+				}
+			);
+			$("ul#territories li").mouseout(
+				function(event){
+					_map.eachLayer(function(layer) {
+					    if (layer.options.pane === "tooltipPane"){layer.removeFrom(_map);}
+					});					
+				}
+			);
 			
 			// one time check to see if touch is being used
 
