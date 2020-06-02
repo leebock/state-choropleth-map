@@ -94,6 +94,12 @@ a, button {
     .leaflet-popup-content {
       text-align: center;
     }
+    .leaflet-tooltip {
+      h4 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
   }
   
   select#category {

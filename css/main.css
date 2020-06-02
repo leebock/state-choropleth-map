@@ -123,6 +123,10 @@ a, button {
 #main #map .leaflet-popup-content {
   text-align: center;
 }
+#main #map .leaflet-tooltip h4 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 #main select#category {
   position: absolute;
   z-index: 6000;

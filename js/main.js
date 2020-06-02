@@ -228,8 +228,10 @@
 						).shift();
 						feature.extraProperties = record;
 						layer.bindTooltip(
-							feature.properties["State abbreviation"],
-							{sticky: true}
+							function(layer) {
+								return createTooltipContent(layer.feature.extraProperties);
+							}, 
+							{sticky: true, offset: L.point(0,-10)}
 						);
 						layer.on("click", layer_onClick);						
 					}
@@ -272,7 +274,7 @@
 						y = y - $(".toggle").outerHeight();
 					}
 					_map.openTooltip(
-						$(this).data("record")[FIELDNAME$STATE_ABBREVIATION], 
+						createTooltipContent($(this).data("record")), 
 						_map.containerPointToLatLng(L.point(x, y)),
 						{offset: L.point(0,-15), direction: "top"}
 					);
@@ -386,6 +388,25 @@
 
 			}
 		);
+	}
+	
+	function createTooltipContent(record)
+	{
+		var content = record[_theme.field].trim();
+		return $("<div>")
+			.append(
+				$("<h4>")
+					.text(record[FIELDNAME$STATE])
+					.css("width", record[FIELDNAME$STATE].length > 30 ? "200px" : "inherit")
+					.css("white-space", record[FIELDNAME$STATE].length > 30 ? "normal" : "nowrap")
+			)
+			.append(
+				$("<div>")
+					.text(content)
+					.css("width", content.length > 40 ? "150px" : "inherit")
+					.css("white-space", content.length > 40 ? "normal" : "nowrap")
+			)
+			.html();
 	}
 
 	/***************************************************************************
