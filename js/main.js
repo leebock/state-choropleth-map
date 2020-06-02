@@ -146,7 +146,7 @@
 		_map = new L.Map(
 			"map", 
 			{
-				zoomControl: !L.Browser.mobile, 
+				zoomControl: false, 
 				attributionControl: false, 
 				maxZoom: 12, minZoom: 2, 
 				zoomSnap: 0.25,
@@ -155,21 +155,16 @@
 		)
 			.addControl(L.control.attribution({position: 'bottomleft'}).addAttribution("Esri"));
 			
-		if (!L.Browser.mobile) {
-			L.easyButton({
-				states:[
-					{
-						icon: "fa fa-home",
-						onClick: function(btn, map){
-							_map.fitBounds(_layerStates.getBounds());
-						},
-						title: "Full extent"
-					}
-				]
-			}).addTo(_map);			
-		}
+		_map.dragging.disable();
+		_map.touchZoom.disable();
+		_map.doubleClickZoom.disable();
+		_map.scrollWheelZoom.disable();
+		_map.boxZoom.disable();
+		_map.keyboard.disable();
+		if (_map.tap) {_map.tap.disable();}
+		document.getElementById('map').style.cursor='default';
 
-		 $.getJSON(
+		$.getJSON(
 			 SERVICE_URL+"/query"+
 			"?where="+encodeURIComponent("1 = 1")+
 			"&outFields=*"+
@@ -179,7 +174,7 @@
 				_records = $.map(data.features, function(value){return value.attributes;});
 				finish();
 			}
-		 );		
+		);		
 	  	
 		$.ajax({
 			url: GEOJSON_URL_STATES,
@@ -334,6 +329,12 @@
 			$("input[name='category']:nth-of-type(1)").prop("checked", true);
 			processCategoryChange();
 			_map.fitBounds(_layerStates.getBounds());
+			$(window).resize(
+				function(){
+					_map.invalidateSize();
+					_map.fitBounds(_layerStates.getBounds());
+				}
+			);
 			
 		}
 
