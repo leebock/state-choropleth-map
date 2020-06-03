@@ -25,7 +25,7 @@
 				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
 				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
-			testFunc: function(value){return value.toLowerCase() === "yes";}
+			evaluator: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
 			field: "MajorDisasterDeclaration",
@@ -34,7 +34,7 @@
 				{status: "Request Approved", color: RGB_COLOR_BLUE, caption: "Request Approved"},
 				{status: "Request Made", color: RGB_COLOR_YELLOW, caption: "Request Made"}
 			],
-			testFunc: function(value){return value;}
+			evaluator: function(value){return value;}
 		},
 		{
 			field: "National_Guard_State_Activation",
@@ -43,7 +43,7 @@
 				{status: true, color: RGB_COLOR_BLUE, caption: "Yes"},
 				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
-			testFunc: function(value){return value.toLowerCase() === "yes";}
+			evaluator: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
 			field: "State_Employee_Travel_Restricti",
@@ -52,7 +52,7 @@
 				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
 				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
-			testFunc: function(value){return value.toLowerCase() === "yes";}
+			evaluator: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
 			field: "Gathering_Limits",
@@ -61,7 +61,7 @@
 				{status: "yes", color: RGB_COLOR_RED, caption: "Statewide limit"},
 				{status: "other", color: RGB_COLOR_ORANGE, caption: "Other"},
 			],
-			testFunc: function(value) {
+			evaluator: function(value) {
 				return value.toLowerCase().search("yes") > -1 ? "yes" : "other";
 			}
 		},
@@ -72,7 +72,7 @@
 				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
 				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
-			testFunc: function(value) {
+			evaluator: function(value) {
 				return value.toLowerCase().search("yes") > -1 ? true : false;
 			}
 		},
@@ -83,7 +83,7 @@
 				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
 				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
-			testFunc: function(value){return value.toLowerCase() === "yes";}
+			evaluator: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
 			field: "Statewide_Curfew",
@@ -93,7 +93,7 @@
 				{status: "local", color: RGB_COLOR_ORANGE, caption: "Local"},
 				{status: "none", color: RGB_COLOR_GRAY, caption: "None"}
 			],
-			testFunc: function(value) {
+			evaluator: function(value) {
 				return value.toLowerCase() === "yes" ? 
 						"yes" :
 						value.toLowerCase() === "local" ? "local" : "none";
@@ -106,7 +106,7 @@
 				{status: true, color: RGB_COLOR_BLUE, caption: "Approved"},
 				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
 			],
-			testFunc: function(value){return value.toLowerCase() === "approved";}
+			evaluator: function(value){return value.toLowerCase() === "approved";}
 		},
 		{
 			field: "Domestic_Travel_Limitations",
@@ -116,7 +116,7 @@
 				{status: "recommendation", color: RGB_COLOR_ORANGE, caption: "Recommendation"},
 				{status: "none", color: RGB_COLOR_GRAY, caption: "None"}				
 			],
-			testFunc: function(value) {
+			evaluator: function(value) {
 				return value.toLowerCase().search("executive") > -1 ? 
 							"executive order" :
 							value.toLowerCase().search("recommendation") > -1 ? 
@@ -196,7 +196,7 @@
 							return null;
 						}
 						var legend = _theme.legend;			
-						var status = _theme.testFunc(feature.extraProperties[_theme.field].trim());
+						var status = _theme.evaluator(feature.extraProperties[_theme.field].trim());
 						
 						var item = $.grep(
 							legend, 
@@ -374,7 +374,7 @@
 			$("ul#territories li"), 
 			function(index, value) {
 				var record = $(value).data("record"); 
-				var status = _theme.testFunc(record[_theme.field].trim());
+				var status = _theme.evaluator(record[_theme.field].trim());
 				
 				var item = $.grep(
 					legend, 
