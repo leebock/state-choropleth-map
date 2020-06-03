@@ -11,11 +11,11 @@
 	var FIELDNAME$STATE = "State";
 	var FIELDNAME$STATE_ABBREVIATION = "STUSPS";
 	
-	var RGB_COLOR_RED = "rgba(255,0,0,0.4)";
+	//var RGB_COLOR_RED = "rgba(255,0,0,0.4)";
 	var RGB_COLOR_GRAY = "rgba(110,110,110,1)";
-	var RGB_COLOR_BLUE = "rgba(0,0,0255,0.4)";
+	//var RGB_COLOR_BLUE = "rgba(0,0,0255,0.4)";
 	//var RGB_COLOR_YELLOW = "rgba(255,255,0,0.4)";
-	var RGB_COLOR_ORANGE = "rgba(255,165,0,0.4)";
+	//var RGB_COLOR_ORANGE = "rgba(255,165,0,0.4)";
 	var RGB_COLOR_DARKESTGREEN = "rgba(0,100,0,1)";
 	var RGB_COLOR_FORESTGREEN = "rgba(34,160,34,1)";
 	var RGB_COLOR_LIMEGREEN = "rgba(0,255,0,1)";
@@ -136,7 +136,7 @@
 						value.search("3") === 0 ? "3" :
 						"unspecified";
 			}
-		},
+		}/*,
 		{
 			field: "State_Employee_Travel_Restricti",
 			alias: "State Employee Travel Restrictions",
@@ -204,7 +204,7 @@
 								"recommendation" : 
 								"none";
 			}
-		}
+		}*/
 	];
 	
 	var _map;

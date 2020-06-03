@@ -118,6 +118,7 @@ a, button {
   @import "ToggleSwitch";
   
   div.toggle {
+    justify-content: center;
     @media (max-width: 900px) {
       display: none;
     }

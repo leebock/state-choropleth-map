@@ -199,6 +199,9 @@ a, button {
   outline: dotted 1px #CCC;
   outline-offset: 0.45rem;
 }
+#main div.toggle {
+  justify-content: center;
+}
 @media (max-width: 900px) {
   #main div.toggle {
     display: none;
