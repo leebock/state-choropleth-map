@@ -14,45 +14,56 @@
 	var RGB_COLOR_RED = "rgba(255,0,0,0.4)";
 	var RGB_COLOR_GRAY = "rgba(220,200,220,0.4)";
 	var RGB_COLOR_BLUE = "rgba(0,0,0255,0.4)";
-	var RGB_COLOR_YELLOW = "rgba(255,255,0,0.4)";
-	var RGB_COLOR_ORANGE = "rgb(255,165,0,0.4)";
+	//var RGB_COLOR_YELLOW = "rgba(255,255,0,0.4)";
+	var RGB_COLOR_ORANGE = "rgba(255,165,0,0.4)";
+	var RGB_COLOR_DARKESTGREEN = "rgba(0,100,0,1)";
+	var RGB_COLOR_FORESTGREEN = "rgba(34,160,34,1)";
+	var RGB_COLOR_LIMEGREEN = "rgba(0,255,0,1)";
+	var RGB_COLOR_PALEGREEN = "rgba(152,251,152,1)";
+	var RGB_COLOR_BEIGE = "rgba(245,245,220,0.4)";
 	
 	var THEMES = [
 		{
-			field: "Emergency_Declaration", 
-			alias: "Emergency Declaration",
+			field: "Statewide_Limits_on_Gatherings_",
+			alias: "Statewide Stay at Home Orders and Guidance",
 			legend: [
-				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
-				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
+				{
+					status: "order", 
+					color: RGB_COLOR_DARKESTGREEN, 
+					caption: "Stay at home order"
+				},
+				{
+					status: "order for vulnerable", 
+					color: RGB_COLOR_FORESTGREEN, 
+					caption: "Stay at home guidance for all; order for vulnerable populations"
+				},
+				{
+					status: "guidance",
+					color: RGB_COLOR_LIMEGREEN, 
+					caption: "Stay at home guidance"
+				},
+				{
+					status: "guidance for vulnerable",
+					color: RGB_COLOR_PALEGREEN,
+					caption: "Stay at home guidance for vulnerable only"
+				},
+				{
+					status: "other", 
+					color: RGB_COLOR_BEIGE, 
+					caption: "other"
+				},
 			],
-			evaluator: function(value){return value.toLowerCase() === "yes";}
-		},
-		{
-			field: "MajorDisasterDeclaration",
-			alias: "Major Disaster Declaration",
-			legend: [
-				{status: "Request Approved", color: RGB_COLOR_BLUE, caption: "Request Approved"},
-				{status: "Request Made", color: RGB_COLOR_YELLOW, caption: "Request Made"}
-			],
-			evaluator: function(value){return value;}
-		},
-		{
-			field: "National_Guard_State_Activation",
-			alias: "National Guard Activation",
-			legend: [
-				{status: true, color: RGB_COLOR_BLUE, caption: "Yes"},
-				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
-			],
-			evaluator: function(value){return value.toLowerCase() === "yes";}
-		},
-		{
-			field: "State_Employee_Travel_Restricti",
-			alias: "State Employee Travel Restrictions",
-			legend: [
-				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
-				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
-			],
-			evaluator: function(value){return value.toLowerCase() === "yes";}
+			evaluator: function(value) {
+				value = value.toLowerCase().trim(); 
+				if (value.search("yes") !== 0) {
+					return "other";
+				}
+				value = value.split("-").pop().trim();
+				return value.search("stay at home order") > -1 ? "order" :
+						value.search("order for vulnerable") > -1 ? "order for vulnerable" :
+						value === "stay at home guidance" ? "guidance" :
+						"guidance for vulnerable";
+			}
 		},
 		{
 			field: "Gathering_Limits",
@@ -64,6 +75,15 @@
 			evaluator: function(value) {
 				return value.toLowerCase().search("yes") > -1 ? "yes" : "other";
 			}
+		},
+		{
+			field: "State_Employee_Travel_Restricti",
+			alias: "State Employee Travel Restrictions",
+			legend: [
+				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
+				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
+			],
+			evaluator: function(value){return value.toLowerCase() === "yes";}
 		},
 		{
 			field: "Statewide_School_Closures",
