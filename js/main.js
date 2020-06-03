@@ -12,7 +12,7 @@
 	var FIELDNAME$STATE_ABBREVIATION = "STUSPS";
 	
 	var RGB_COLOR_RED = "rgba(255,0,0,0.4)";
-	var RGB_COLOR_GRAY = "rgba(220,200,220,0.4)";
+	var RGB_COLOR_GRAY = "rgba(110,110,110,1)";
 	var RGB_COLOR_BLUE = "rgba(0,0,0255,0.4)";
 	//var RGB_COLOR_YELLOW = "rgba(255,255,0,0.4)";
 	var RGB_COLOR_ORANGE = "rgba(255,165,0,0.4)";
@@ -20,6 +20,12 @@
 	var RGB_COLOR_FORESTGREEN = "rgba(34,160,34,1)";
 	var RGB_COLOR_LIMEGREEN = "rgba(0,255,0,1)";
 	var RGB_COLOR_PALEGREEN = "rgba(152,251,152,1)";
+	
+	var RGB_COLOR_PURPLE1 = "rgba(233,200,252,1)";
+	var RGB_COLOR_PURPLE2 = "rgba(226,140,252,1)";
+	var RGB_COLOR_PURPLE3 = "rgba(183,48,232,1)";
+	var RGB_COLOR_PURPLE4 = "rgba(108,48,140,1)";
+	
 	var RGB_COLOR_BEIGE = "rgba(245,245,220,0.4)";
 	
 	var THEMES = [
@@ -50,8 +56,8 @@
 				{
 					status: "other", 
 					color: RGB_COLOR_BEIGE, 
-					caption: "other"
-				},
+					caption: "Other"
+				}
 			],
 			evaluator: function(value) {
 				value = value.toLowerCase().trim(); 
@@ -69,11 +75,66 @@
 			field: "Gathering_Limits",
 			alias: "Statewide Limits on Gatherings",
 			legend: [
-				{status: "yes", color: RGB_COLOR_RED, caption: "Statewide limit"},
-				{status: "other", color: RGB_COLOR_ORANGE, caption: "Other"},
+				{
+					status: "250", 
+					color: RGB_COLOR_PURPLE1, 
+					caption: "250 or more"
+				},
+				{
+					status: "100", 
+					color: RGB_COLOR_PURPLE2, 
+					caption: "100 or more"
+				},
+				{
+					status: "50",
+					color: RGB_COLOR_PURPLE3, 
+					caption: "50 or more"
+				},
+				{
+					status: "25",
+					color: RGB_COLOR_PURPLE4,
+					caption: "25 or more"
+				},
+				{
+					status: "10",
+					color: RGB_COLOR_LIMEGREEN,
+					caption: "10 or more"
+				},
+				{
+					status: "5",
+					color: RGB_COLOR_FORESTGREEN,
+					caption: "5 or more"
+				},
+				{
+					status: "3",
+					color: RGB_COLOR_DARKESTGREEN,
+					caption: "3 or more"
+				},
+				{
+					status: "unspecified",
+					color: RGB_COLOR_GRAY,
+					caption: "Unspecified"
+				},
+				{
+					status: "other", 
+					color: RGB_COLOR_BEIGE, 
+					caption: "Other"
+				}
 			],
 			evaluator: function(value) {
-				return value.toLowerCase().search("yes") > -1 ? "yes" : "other";
+				value = value.toLowerCase().trim(); 
+				if (value.search("yes") !== 0) {
+					return "other";
+				}
+				value = value.split("-")[1].trim();
+				return value.search("250") === 0 ? "250" :
+						value.search("100") === 0 ? "100" :
+						value.search("50") === 0 ? "50" :
+						value.search("25") === 0 ? "25" :
+						value.search("10") === 0 ? "10" :
+						value.search("5") === 0 ? "5" :
+						value.search("3") === 0 ? "3" :
+						"unspecified";
 			}
 		},
 		{
