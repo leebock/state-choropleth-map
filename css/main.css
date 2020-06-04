@@ -212,6 +212,7 @@ a, button {
   z-index: 6001;
   right: 15px;
   bottom: 15px;
+  max-width: calc(100% - 300px);
   font-size: 14px;
   padding: 5px;
   display: flex;

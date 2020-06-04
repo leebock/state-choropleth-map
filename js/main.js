@@ -224,7 +224,7 @@
 			$(".banner").hide();
 		}
 				
-		_map = new L.Map(
+		_map = new L.PaddingAwareMap(
 			"map", 
 			{
 				zoomControl: false, 
@@ -232,7 +232,8 @@
 				maxZoom: 12, minZoom: 2, 
 				zoomSnap: 0.25,
 				worldCopyJump: true
-			}
+			},
+			getExtentPadding
 		)
 			.addControl(L.control.attribution({position: 'bottomleft'}).addAttribution("Esri"));
 			
@@ -489,6 +490,15 @@
 			)
 			.html();
 	}
+	
+	function getExtentPadding()
+	{
+		var top = 45;
+		var right = 0;
+		var bottom = $("#legend").outerHeight();
+		var left = 0;
+		return {paddingTopLeft: [left,top], paddingBottomRight: [right,bottom]};
+	}	
 
 	/***************************************************************************
 	*********************************** EVENTS  ********************************
