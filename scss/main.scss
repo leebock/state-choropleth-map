@@ -133,12 +133,18 @@ a, button {
     font-size: 14px;
     padding: 5px;
     display: flex;
+    justify-content: flex-end;
     * {
       margin-right: 5px;
     }
     div.swatch {
       width: 20px;
       height: 20px;
+      border-color: gray;
+      border-style: solid;
+      border-width: 1px;
+    }
+    div.caption {
     }
   }
   
@@ -155,7 +161,7 @@ a, button {
     -moz-padding-end: 0px;
     
     position: absolute;
-    bottom: 15px;
+    bottom: 25px;
     left: 80px;
     z-index: 1000;
     
