@@ -19,8 +19,6 @@
 	
 	$(document).ready(function() {
 		
-		console.log(parseArgs());
-
 		if (!inIframe()) {
 			new SocialButtonBar();
 		} else {
@@ -206,7 +204,12 @@
 					processCategoryChange();
 				}
 			);
-			$("input[name='category']:nth-of-type(1)").prop("checked", true);
+			var index = parseArgs().index || 0;
+			if (index > window.THEMES.length - 1) {
+				index = 0;
+			}
+			$($("input[name='category']").get(index)).prop("checked", true);
+			$("select#category").prop("selectedIndex", index);
 			processCategoryChange();
 			_map.fitBounds(_layerStates.getBounds());
 			$(window).resize(
