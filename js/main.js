@@ -223,10 +223,7 @@
 	function processCategoryChange()
 	{
 		_map.closePopup();
-		_theme = $.grep(
-			window.THEMES, 
-			function(value){return value.title === $("select#category").val();}
-		).shift();		
+		_theme = window.THEMES[$("select#category").prop("selectedIndex")];
 		createLegend();
 		styleTerritories();
 		_layerStates.eachLayer(function(layer){_layerStates.resetStyle(layer);});			
