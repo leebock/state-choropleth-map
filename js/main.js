@@ -13,7 +13,6 @@
 	
 	var THEMES = [
 		{
-			field: "State",
 			alias: "Has a 'U' in its Name",
 			legend: [
 				{
@@ -62,7 +61,6 @@
 			}		
 		},
 		{
-			field: "Glasses",
 			alias: "Governor wears glasses in photo",
 			legend: [
 				{
@@ -278,12 +276,12 @@
 			$.each(
 				THEMES,
 				function(index, theme) {
-					$("<option>").val(theme.field).text(theme.alias).appendTo($("select#category"));
+					$("<option>").val(theme.alias).text(theme.alias).appendTo($("select#category"));
 					$("<input>")
 						.attr({
 							"type": "radio", 
 							"name": "category", 
-							"value": theme.field, 
+							"value": theme.alias, 
 							"id": "radio-"+index
 						})
 						.appendTo($("div.toggle"));
@@ -327,7 +325,7 @@
 		_map.closePopup();
 		_theme = $.grep(
 			THEMES, 
-			function(value){return value.field === $("select#category").val();}
+			function(value){return value.alias === $("select#category").val();}
 		).shift();		
 		createLegend();
 		styleTerritories();
