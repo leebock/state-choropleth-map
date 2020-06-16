@@ -8,108 +8,8 @@
 	var SPREADSHEET_URL = "resources/state-facts.csv";	
 	var GEOJSON_URL_STATES = "resources/Composite_CONUS_AK_HI_5.json";
 	
-	var FIELDNAME$STATE = "State";
 	var FIELDNAME$STATE_ABBREVIATION = "Code";
-	
-	var THEMES = [
-		{
-			title: "Has a 'U' in its Name",
-			legend: [
-				{
-					status: false, 
-					color: "rgba(110,110,110,0.3)", 
-					caption: "No 'U'"
-				},
-				{
-					status: true, 
-					color: "rgba(255,165,0,0.5)", 
-					caption: "Yes 'U'!"
-				}
-			],
-			evaluator: function(value) {
-				return value.State.toLowerCase().trim().search("u") > -1 ? true : false;
-			},
-			createTooltipContent: function(record)
-			{
-				var content = record.State;
-				return $("<div>")
-					.append(
-						$("<h4>")
-							.text(record[FIELDNAME$STATE])
-							.css("width", record[FIELDNAME$STATE].length > 30 ? "200px" : "inherit")
-							.css("white-space", record[FIELDNAME$STATE].length > 30 ? "normal" : "nowrap")
-					)
-					.append(
-						$("<div>")
-							.text(content)
-							.css("width", content.length > 40 ? "150px" : "inherit")
-							.css("white-space", content.length > 40 ? "normal" : "nowrap")
-					)
-					.html();
-			},
-			createPopupContent: function(record)
-			{
-				var content = record.State;
-				return $("<div>")
-						.append(
-							$("<div>")
-								.css("font-weight", "bold")
-								.text(content)
-						)
-						.append($("<div>").text(content))
-						.html();
-			}		
-		},
-		{
-			title: "Governor wears glasses in photo",
-			legend: [
-				{
-					status: false, 
-					color: "rgba(110,110,110,0.3)", 
-					caption: "Two eyes"
-				},
-				{
-					status: true, 
-					color: "rgb(255,0,255,0.5)", 
-					caption: "Four eyes"
-				}
-			],
-			evaluator: function(value) {
-				return value.Glasses.toLowerCase().trim() === "checked" ? true : false;
-			},
-			createTooltipContent: function(record)
-			{
-				var content = record.Governor;
-				return $("<div>")
-					.append(
-						$("<h4>")
-							.text(record[FIELDNAME$STATE])
-							.css("width", record[FIELDNAME$STATE].length > 30 ? "200px" : "inherit")
-							.css("white-space", record[FIELDNAME$STATE].length > 30 ? "normal" : "nowrap")
-					)
-					.append(
-						$("<div>")
-							.text(content)
-							.css("width", content.length > 40 ? "150px" : "inherit")
-							.css("white-space", content.length > 40 ? "normal" : "nowrap")
-					)
-					.html();
-			},
-			createPopupContent: function(record)
-			{
-				var content = record.Governor;
-				return $("<div>")
-						.append(
-							$("<div>")
-								.css("font-weight", "bold")
-								.text(content)
-						)
-						.append($("<div>").text(content))
-						.html();
-			}			
-		}
-	];
-	
+		
 	var _map;
 	var _featuresStates;
 	var _layerStates;
@@ -274,7 +174,7 @@
 			);
 			
 			$.each(
-				THEMES,
+				window.THEMES,
 				function(index, theme) {
 					$("<option>").val(theme.title).text(theme.title).appendTo($("select#category"));
 					$("<input>")
@@ -324,7 +224,7 @@
 	{
 		_map.closePopup();
 		_theme = $.grep(
-			THEMES, 
+			window.THEMES, 
 			function(value){return value.title === $("select#category").val();}
 		).shift();		
 		createLegend();
