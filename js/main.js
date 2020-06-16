@@ -5,206 +5,111 @@
 	//var WIDTH_THRESHOLD = 768;
 
 	var GLOBAL_CLASS_USETOUCH = "touch";
-	var SERVICE_URL =  "https://services3.arcgis.com/EvmgEO8WtpouUbyD/ArcGIS/rest/services/Cornavirus_State_Actions_FL/FeatureServer/0";	
+	var SPREADSHEET_URL = "resources/state-facts.csv";	
 	var GEOJSON_URL_STATES = "resources/Composite_CONUS_AK_HI_5.json";
 	
 	var FIELDNAME$STATE = "State";
-	var FIELDNAME$STATE_ABBREVIATION = "STUSPS";
-	
-	//var RGB_COLOR_RED = "rgba(255,0,0,0.4)";
-	var RGB_COLOR_GRAY = "rgba(110,110,110,1)";
-	//var RGB_COLOR_BLUE = "rgba(0,0,0255,0.4)";
-	//var RGB_COLOR_YELLOW = "rgba(255,255,0,0.4)";
-	//var RGB_COLOR_ORANGE = "rgba(255,165,0,0.4)";
-	var RGB_COLOR_DARKESTGREEN = "rgba(0,100,0,1)";
-	var RGB_COLOR_FORESTGREEN = "rgba(34,160,34,1)";
-	var RGB_COLOR_LIMEGREEN = "rgba(0,255,0,1)";
-	var RGB_COLOR_PALEGREEN = "rgba(152,251,152,1)";
-	
-	var RGB_COLOR_PURPLE1 = "rgba(233,200,252,1)";
-	var RGB_COLOR_PURPLE2 = "rgba(226,140,252,1)";
-	var RGB_COLOR_PURPLE3 = "rgba(183,48,232,1)";
-	var RGB_COLOR_PURPLE4 = "rgba(108,48,140,1)";
-	
-	var RGB_COLOR_BEIGE = "rgba(245,245,220,0.4)";
+	var FIELDNAME$STATE_ABBREVIATION = "Code";
 	
 	var THEMES = [
 		{
-			field: "Statewide_Limits_on_Gatherings_",
-			alias: "Statewide Stay at Home Orders and Guidance",
+			field: "State",
+			alias: "Has a 'U' in its Name",
 			legend: [
 				{
-					status: "order", 
-					color: RGB_COLOR_DARKESTGREEN, 
-					caption: "Stay at home order"
+					status: false, 
+					color: "rgba(110,110,110,0.3)", 
+					caption: "No 'U'"
 				},
 				{
-					status: "order for vulnerable", 
-					color: RGB_COLOR_FORESTGREEN, 
-					caption: "Stay at home guidance for all; order for vulnerable populations"
-				},
-				{
-					status: "guidance",
-					color: RGB_COLOR_LIMEGREEN, 
-					caption: "Stay at home guidance"
-				},
-				{
-					status: "guidance for vulnerable",
-					color: RGB_COLOR_PALEGREEN,
-					caption: "Stay at home guidance for vulnerable only"
-				},
-				{
-					status: "other", 
-					color: RGB_COLOR_BEIGE, 
-					caption: "Other"
+					status: true, 
+					color: "rgba(255,165,0,0.5)", 
+					caption: "Yes 'U'!"
 				}
 			],
 			evaluator: function(value) {
-				value = value.toLowerCase().trim(); 
-				if (value.search("yes") !== 0) {
-					return "other";
-				}
-				value = value.split("-").pop().trim();
-				return value.search("stay at home order") > -1 ? "order" :
-						value.search("order for vulnerable") > -1 ? "order for vulnerable" :
-						value === "stay at home guidance" ? "guidance" :
-						"guidance for vulnerable";
-			}
+				return value.State.toLowerCase().trim().search("u") > -1 ? true : false;
+			},
+			createTooltipContent: function(record)
+			{
+				var content = record.State;
+				return $("<div>")
+					.append(
+						$("<h4>")
+							.text(record[FIELDNAME$STATE])
+							.css("width", record[FIELDNAME$STATE].length > 30 ? "200px" : "inherit")
+							.css("white-space", record[FIELDNAME$STATE].length > 30 ? "normal" : "nowrap")
+					)
+					.append(
+						$("<div>")
+							.text(content)
+							.css("width", content.length > 40 ? "150px" : "inherit")
+							.css("white-space", content.length > 40 ? "normal" : "nowrap")
+					)
+					.html();
+			},
+			createPopupContent: function(record)
+			{
+				var content = record.State;
+				return $("<div>")
+						.append(
+							$("<div>")
+								.css("font-weight", "bold")
+								.text(content)
+						)
+						.append($("<div>").text(content))
+						.html();
+			}		
 		},
 		{
-			field: "Gathering_Limits",
-			alias: "Statewide Limits on Gatherings",
+			field: "Glasses",
+			alias: "Governor wears glasses in photo",
 			legend: [
 				{
-					status: "250", 
-					color: RGB_COLOR_PURPLE1, 
-					caption: "250 or more"
+					status: false, 
+					color: "rgba(110,110,110,0.3)", 
+					caption: "Two eyes"
 				},
 				{
-					status: "100", 
-					color: RGB_COLOR_PURPLE2, 
-					caption: "100 or more"
-				},
-				{
-					status: "50",
-					color: RGB_COLOR_PURPLE3, 
-					caption: "50 or more"
-				},
-				{
-					status: "25",
-					color: RGB_COLOR_PURPLE4,
-					caption: "25 or more"
-				},
-				{
-					status: "10",
-					color: RGB_COLOR_LIMEGREEN,
-					caption: "10 or more"
-				},
-				{
-					status: "5",
-					color: RGB_COLOR_FORESTGREEN,
-					caption: "5 or more"
-				},
-				{
-					status: "3",
-					color: RGB_COLOR_DARKESTGREEN,
-					caption: "3 or more"
-				},
-				{
-					status: "unspecified",
-					color: RGB_COLOR_GRAY,
-					caption: "Unspecified"
-				},
-				{
-					status: "other", 
-					color: RGB_COLOR_BEIGE, 
-					caption: "Other"
+					status: true, 
+					color: "rgb(255,0,255,0.5)", 
+					caption: "Four eyes"
 				}
 			],
 			evaluator: function(value) {
-				value = value.toLowerCase().trim(); 
-				if (value.search("yes") !== 0) {
-					return "other";
-				}
-				value = value.split("-")[1].trim();
-				return value.search("250") === 0 ? "250" :
-						value.search("100") === 0 ? "100" :
-						value.search("50") === 0 ? "50" :
-						value.search("25") === 0 ? "25" :
-						value.search("10") === 0 ? "10" :
-						value.search("5") === 0 ? "5" :
-						value.search("3") === 0 ? "3" :
-						"unspecified";
-			}
-		}/*,
-		{
-			field: "State_Employee_Travel_Restricti",
-			alias: "State Employee Travel Restrictions",
-			legend: [
-				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
-				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
-			],
-			evaluator: function(value){return value.toLowerCase() === "yes";}
-		},
-		{
-			field: "Statewide_School_Closures",
-			alias: "Statewide School Closures",
-			legend: [
-				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
-				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
-			],
-			evaluator: function(value) {
-				return value.toLowerCase().search("yes") > -1 ? true : false;
-			}
-		},
-		{
-			field: "Essential_Business_Designations",
-			alias: "Essential Business Designations Issued",
-			legend: [
-				{status: true, color: RGB_COLOR_RED, caption: "Yes"},
-				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
-			],
-			evaluator: function(value){return value.toLowerCase() === "yes";}
-		},
-		{
-			field: "Statewide_Curfew",
-			alias: "Statewide Curfew",
-			legend: [
-				{status: "yes", color: RGB_COLOR_RED, caption: "Yes"},
-				{status: "local", color: RGB_COLOR_ORANGE, caption: "Local"},
-				{status: "none", color: RGB_COLOR_GRAY, caption: "None"}
-			],
-			evaluator: function(value) {
-				return value.toLowerCase() === "yes" ? 
-						"yes" :
-						value.toLowerCase() === "local" ? "local" : "none";
-			}
-		},
-		{
-			field: "F1135_Waiver_Status",
-			alias: "1135 Waiver Status",
-			legend: [
-				{status: true, color: RGB_COLOR_BLUE, caption: "Approved"},
-				{status: false, color: RGB_COLOR_GRAY, caption: "No"}
-			],
-			evaluator: function(value){return value.toLowerCase() === "approved";}
-		},
-		{
-			field: "Domestic_Travel_Limitations",
-			alias: "Domestic Travel Limitations",
-			legend: [
-				{status: "executive order", color: RGB_COLOR_RED, caption: "Executive Order"},
-				{status: "recommendation", color: RGB_COLOR_ORANGE, caption: "Recommendation"},
-				{status: "none", color: RGB_COLOR_GRAY, caption: "None"}				
-			],
-			evaluator: function(value) {
-				return value.toLowerCase().search("executive") > -1 ? 
-							"executive order" :
-							value.toLowerCase().search("recommendation") > -1 ? 
-								"recommendation" : 
-								"none";
-			}
-		}*/
+				return value.Glasses.toLowerCase().trim() === "checked" ? true : false;
+			},
+			createTooltipContent: function(record)
+			{
+				var content = record.Governor;
+				return $("<div>")
+					.append(
+						$("<h4>")
+							.text(record[FIELDNAME$STATE])
+							.css("width", record[FIELDNAME$STATE].length > 30 ? "200px" : "inherit")
+							.css("white-space", record[FIELDNAME$STATE].length > 30 ? "normal" : "nowrap")
+					)
+					.append(
+						$("<div>")
+							.text(content)
+							.css("width", content.length > 40 ? "150px" : "inherit")
+							.css("white-space", content.length > 40 ? "normal" : "nowrap")
+					)
+					.html();
+			},
+			createPopupContent: function(record)
+			{
+				var content = record.Governor;
+				return $("<div>")
+						.append(
+							$("<div>")
+								.css("font-weight", "bold")
+								.text(content)
+						)
+						.append($("<div>").text(content))
+						.html();
+			}			
+		}
 	];
 	
 	var _map;
@@ -246,18 +151,15 @@
 		if (_map.tap) {_map.tap.disable();}
 		document.getElementById('map').style.cursor='default';
 
-		$.getJSON(
-			 SERVICE_URL+"/query"+
-			"?where="+encodeURIComponent("1 = 1")+
-			"&outFields=*"+
-			"&returnGeometry=false"+
-			"&f=pjson", 
-			function(data) {
-				_records = $.map(data.features, function(value){return value.attributes;});
-				finish();
+		Papa.parse(
+			SPREADSHEET_URL, 
+			{
+				header: true,
+				download: true,
+				complete: function(data) {_records = data.data;finish();}
 			}
-		);		
-	  	
+		);
+			  	
 		$.ajax({
 			url: GEOJSON_URL_STATES,
 			success: function(result) {_featuresStates = result.features;finish();}
@@ -278,7 +180,7 @@
 							return null;
 						}
 						var legend = _theme.legend;			
-						var status = _theme.evaluator(feature.extraProperties[_theme.field].trim());
+						var status = _theme.evaluator(feature.extraProperties);
 						
 						var item = $.grep(
 							legend, 
@@ -301,17 +203,13 @@
 						var record = $.grep(
 							_records, 
 							function(value) {
-								return value[FIELDNAME$STATE_ABBREVIATION]
-										.split("(")
-										.pop()
-										.replace(")","") === 
-										feature.properties["State abbreviation"];
+								return value[FIELDNAME$STATE_ABBREVIATION] === feature.properties["State abbreviation"];
 							}
 						).shift();
 						feature.extraProperties = record;
 						layer.bindTooltip(
 							function(layer) {
-								return createTooltipContent(layer.feature.extraProperties);
+								return _theme.createTooltipContent(layer.feature.extraProperties);
 							}, 
 							{sticky: true, offset: L.point(0,-10)}
 						);
@@ -356,7 +254,7 @@
 						y = y - $(".toggle").outerHeight();
 					}
 					_map.openTooltip(
-						createTooltipContent($(this).data("record")), 
+						_theme.createTooltipContent($(this).data("record")), 
 						_map.containerPointToLatLng(L.point(x, y)),
 						{offset: L.point(0,-15), direction: "top"}
 					);
@@ -456,7 +354,7 @@
 			$("ul#territories li"), 
 			function(index, value) {
 				var record = $(value).data("record"); 
-				var status = _theme.evaluator(record[_theme.field].trim());
+				var status = _theme.evaluator(record);
 				
 				var item = $.grep(
 					legend, 
@@ -470,26 +368,7 @@
 
 			}
 		);
-	}
-	
-	function createTooltipContent(record)
-	{
-		var content = record[_theme.field].trim();
-		return $("<div>")
-			.append(
-				$("<h4>")
-					.text(record[FIELDNAME$STATE])
-					.css("width", record[FIELDNAME$STATE].length > 30 ? "200px" : "inherit")
-					.css("white-space", record[FIELDNAME$STATE].length > 30 ? "normal" : "nowrap")
-			)
-			.append(
-				$("<div>")
-					.text(content)
-					.css("width", content.length > 40 ? "150px" : "inherit")
-					.css("white-space", content.length > 40 ? "normal" : "nowrap")
-			)
-			.html();
-	}
+	}	
 	
 	function getExtentPadding()
 	{
@@ -507,19 +386,9 @@
 	function layer_onClick(e)
 	{
 		$(".leaflet-tooltip").remove();
-		var content = e.target.feature.extraProperties[_theme.field].trim();
 		L.popup({closeButton: false})
 			.setLatLng(e.latlng)
-			.setContent(
-				$("<div>")
-					.append(
-						$("<div>")
-							.css("font-weight", "bold")
-							.text(e.target.feature.extraProperties[FIELDNAME$STATE])
-					)
-					.append($("<div>").text(content))
-					.html()											
-			)
+			.setContent(_theme.createPopupContent(e.target.feature.extraProperties))
 			.openOn(_map);		
 	}
 
