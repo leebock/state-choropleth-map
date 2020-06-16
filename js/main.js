@@ -194,9 +194,9 @@
 			
 			$("select#category").change(
 				function() {
-					var category = $(this).val();
 					$("input[name='category']").prop("checked", false);
-					$("input[name='category'][value='"+category+"']").prop("checked", true);
+					var index = $(this).prop("selectedIndex");
+					$($("input[name='category']").get(index)).prop("checked", true);
 					processCategoryChange();
 				}
 			);
