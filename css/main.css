@@ -136,11 +136,6 @@ a, button {
   padding: 5px;
   display: none;
 }
-@media (max-width: 900px) {
-  #main select#category {
-    display: block;
-  }
-}
 #main body:not(:-moz-handler-blocked) fieldset {
   display: table-cell;
 }
@@ -200,6 +195,7 @@ a, button {
   outline-offset: 0.45rem;
 }
 #main div.toggle {
+  display: none;
   justify-content: center;
 }
 @media (max-width: 900px) {

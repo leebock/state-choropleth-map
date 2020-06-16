@@ -111,13 +111,14 @@ a, button {
     padding: 5px;
     display: none;
     @media (max-width: 900px) {
-      display: block;
+      //display: block;
     }
   }
   
   @import "ToggleSwitch";
   
   div.toggle {
+    display: none;
     justify-content: center;
     @media (max-width: 900px) {
       display: none;
