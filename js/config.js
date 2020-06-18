@@ -53,7 +53,7 @@ window.THEMES = [
             }
         ],
         evaluator: function(value) {
-            return value.Glasses.toLowerCase().trim() === "1" ? true : false;
+            return value.Glasses.toLowerCase().trim() === "1 checked out of 1" ? true : false;
         },
         createTooltipContent: function(record)
         {
@@ -77,6 +77,56 @@ window.THEMES = [
                         .text(governor)
                         .css("width", governor.length > 40 ? "150px" : "inherit")
                         .css("white-space", governor.length > 40 ? "normal" : "nowrap")
+                )
+                .html();
+        },
+        createPopupContent: function(record)
+        {
+            return this.createTooltipContent(record);
+        }			
+    },
+    {
+        title: "Number of American Idol winners produced",
+        legend: [
+            {
+                status: 0, 
+                color: "rgba(110,110,110,0.3)", 
+                caption: "None"
+            },
+            {
+                status: 1, 
+                color: "rgba(255,255,0,0.2)", 
+                caption: "One"
+            },
+            {
+                status: 2, 
+                color: "rgba(248, 148, 6, 0.5)", 
+                caption: "Two"
+            },
+            {
+                status: 3, 
+                color: "rgb(255,0,0,0.5)", 
+                caption: "Three"
+            }
+        ],
+        evaluator: function(value) {
+            return parseInt(value.IdolWinners_Count);
+        },
+        createTooltipContent: function(record)
+        {
+            var state = record.State;
+            return $("<div>")
+                .append(
+                    $("<h4>")
+                        .text(state)
+                        .css("width", record.State.length > 30 ? "200px" : "inherit")
+                        .css("white-space", record.State.length > 30 ? "normal" : "nowrap")
+                )
+                .append(
+                    $("<div>")
+                        .html(record.IdolWinners_Count > 0 ? record.IdolWinners_Names : "Step it up, "+state+"!")
+                        .css("width", record.IdolWinners_Names.length > 40 ? "150px" : "inherit")
+                        .css("white-space", record.IdolWinners_Names.length > 40 ? "normal" : "nowrap")
                 )
                 .html();
         },
