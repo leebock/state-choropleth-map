@@ -204,10 +204,8 @@
 					processCategoryChange();
 				}
 			);
-			var index = parseArgs().index || 0;
-			if (index > window.THEMES.length - 1) {
-				index = 0;
-			}
+			var index = parseInt(parseArgs().map) - 1 || 0;
+			index = index >= 0 && index <= window.THEMES.length - 1 ? index : 0;
 			$($("input[name='category']").get(index)).prop("checked", true);
 			$("select#category").prop("selectedIndex", index);
 			processCategoryChange();
