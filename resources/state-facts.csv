@@ -1,61 +1,59 @@
-﻿State,Link Field,Code,Glasses,Governor,Portrait,Party
-Alabama,Alabama,AL,checked,Kay Ivey,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Portrait-Governor-Kay-Ivey_%28cropped%29.jpg/374px-Portrait-Governor-Kay-Ivey_%28cropped%29.jpg,Republican
-Alaska,Alaska,AK,,Mike Dunleavy,https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Mike_Dunleavy_official_photo_%28cropped%29.jpg/357px-Mike_Dunleavy_official_photo_%28cropped%29.jpg,Republican
-Arizona,Arizona,AZ,,Doug Ducey,https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Doug_Ducey_by_Gage_Skidmore_13.jpg/336px-Doug_Ducey_by_Gage_Skidmore_13.jpg,Republican
-Arkansas,Arkansas,AR,,Asa Hutchinson,https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Asa_Hutchinson_2019.jpg/366px-Asa_Hutchinson_2019.jpg,Republican
-California,California,CA,,Gavin Newsom,https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Gavin_Newsom_by_Gage_Skidmore.jpg/351px-Gavin_Newsom_by_Gage_Skidmore.jpg,Democratic
-Colorado,Colorado,CO,,Jared Polis,https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Jared_Polis_official_photo_%28cropped%29.jpg/361px-Jared_Polis_official_photo_%28cropped%29.jpg,Democratic
-Connecticut,Connecticut,CT,,Ned Lamont,https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Governor_Ned_Lamont_of_Connecticut%2C_official_portrait_%28cropped%29.jpg/352px-Governor_Ned_Lamont_of_Connecticut%2C_official_portrait_%28cropped%29.jpg,Democratic
-Delaware,Delaware,DE,,John Carney,https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/John_C._Carney_Jr._official_portrait_112th_Congress_%28cropped%29.jpg/342px-John_C._Carney_Jr._official_portrait_112th_Congress_%28cropped%29.jpg,Democratic
-Florida,Florida,FL,,Ron DeSantis,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Gov_Ron_DeSantis_Portrait_%28cropped%29.jpg/476px-Gov_Ron_DeSantis_Portrait_%28cropped%29.jpg,Republican
-Georgia,Georgia,GA,,Brian Kemp,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/David_Perdue_and_Brian_Kemp_%28cropped%29.jpg/366px-David_Perdue_and_Brian_Kemp_%28cropped%29.jpg,Republican
-Hawaii,Hawaii,HI,,David Ige,https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Governor_David_Ige_%28cropped_2%29.jpg/323px-Governor_David_Ige_%28cropped_2%29.jpg,Democratic
-Idaho,Idaho,ID,,Brad Little,https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Brad_Little_official_photo_%28cropped%29.jpg/334px-Brad_Little_official_photo_%28cropped%29.jpg,Republican
-Illinois,Illinois,IL,,J. B. Pritzker,https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Illinois_Gov._J.B._Pritzker.jpg/461px-Illinois_Gov._J.B._Pritzker.jpg,Democratic
-Indiana,Indiana,IN,checked,Eric Holcomb,https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Eric_Holcomb_Grissom.jpg/378px-Eric_Holcomb_Grissom.jpg,Republican
-Iowa,Iowa,IA,,Kim Reynolds,https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Kim_Reynolds_by_Gage_Skidmore_%28cropped%29.jpg/383px-Kim_Reynolds_by_Gage_Skidmore_%28cropped%29.jpg,Republican
-Kansas,Kansas,KS,checked,Laura Kelly,https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Laura_Kelly_official_photo_%28cropped%29.jpg/366px-Laura_Kelly_official_photo_%28cropped%29.jpg,Democratic
-Kentucky,Kentucky,KY,,Andy Beshear,https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Gov._Beshear_of_Kentucky_2020.jpg/478px-Gov._Beshear_of_Kentucky_2020.jpg,Democratic
-Louisiana,Louisiana,LA,,John Bel Edwards,https://upload.wikimedia.org/wikipedia/commons/b/b5/John_Bel_Edwards_%28cropped%29.jpg,Democratic
-Maine,Maine,ME,,Janet Mills,https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Janet_Mills_in_2019.jpg/446px-Janet_Mills_in_2019.jpg,Democratic
-Maryland,Maryland,MD,checked,Larry Hogan,,Republican
-Massachusetts,Massachusetts,MA,,Charlie Baker,,Republican
-Michigan,Michigan,MI,,Gretchen Whitmer,,Democratic
-Minnesota,Minnesota,MN,,Tim Walz,,Democratic–Farmer–Labor
-Mississippi,Mississippi,MS,checked,Tate Reeves,,Republican
-Missouri,Missouri,MO,,Mike Parson,,Republican
-Montana,Montana,MT,,Steve Bullock,,Democratic
-Nebraska,Nebraska,NE,,Pete Ricketts,,Republican
-Nevada,Nevada,NV,,Steve Sisolak,,Democratic
-New Hampshire,New Hampshire,NH,,Chris Sununu,,Republican
-New Jersey,New Jersey,NJ,,Phil Murphy,,Democratic
-New Mexico,New Mexico,NM,,Michelle Lujan Grisham,,Democratic
-New York,New York,NY,,Andrew Cuomo,,Democratic
-North Carolina,North Carolina,NC,,Roy Cooper,,Democratic
-North Dakota,North Dakota,ND,checked,Doug Burgum,,Republican
-Ohio,Ohio,OH,checked,Mike DeWine,,Republican
-Oklahoma,Oklahoma,OK,,Kevin Stitt,,Republican
-Oregon,Oregon,OR,checked,Kate Brown,,Democratic
-Pennsylvania,Pennsylvania,PA,,Tom Wolf,,Democratic
-Rhode Island,Rhode Island,RI,,Gina Raimondo,,Democratic
-South Carolina,South Carolina,SC,,Henry McMaster,,Republican
-South Dakota,South Dakota,SD,,Kristi Noem,,Republican
-Tennessee,Tennessee,TN,,Bill Lee,,Republican
-Texas,Texas,TX,,Greg Abbott,,Republican
-Utah,Utah,UT,,Gary Herbert,,Republican
-Vermont,Vermont,VT,,Phil Scott,,Republican
-Virginia,Virginia,VA,,Ralph Northam,,Democratic
-Washington,Washington,WA,,Jay Inslee,,Democratic
-West Virginia,West Virginia,WV,,Jim Justice,,Republican[note 1]
-Wisconsin,Wisconsin,WI,checked,Tony Evers,,Democratic
-Wyoming,Wyoming,WY,,Mark Gordon,,Republican
+﻿State,Code,Portrait,Governor,Glasses,Bird,Binomial_nomenclature,Photo
+Alabama,AL,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Portrait-Governor-Kay-Ivey_%28cropped%29.jpg/187px-Portrait-Governor-Kay-Ivey_%28cropped%29.jpg,Kay Ivey,1,Yellowhammer,Colaptes auratus,
+Alaska,AK,,Mike Dunleavy,0,Willow ptarmigan,Lagopus lagopus,
+Arizona,AZ,,Doug Ducey,0,Cactus wren,Campylorhynchus  brunneicapillus,
+Arkansas,AR,,Asa Hutchinson,0,Northern mockingbird,Mimus polyglottos,
+California,CA,,Gavin Newsom,0,California quail,Callipepla californica,
+Colorado,CO,,Jared Polis,0,Lark bunting,Calamospiza melanocorys,
+Connecticut,CT,,Ned Lamont,0,American robin,Turdus migratorius,
+Delaware,DE,,John Carney,0,Delaware Blue Hen,Gallus gallus,
+District of Columbia,DC,,Muriel Bowser,0,Wood thrush,Hylocichla mustelina,
+Florida,FL,,Ron DeSantis,0,Northern mockingbird,Mimus polyglottos,
+Georgia,GA,,Brian Kemp,0,Brown thrasher,Toxostoma rufum,
+Hawaii,HI,,David Ige,0,Hawaiian goose (Nēnē),Branta sandvicensis,
+Idaho,ID,,Brad Little,0,Mountain bluebird,Sialia currucoides,
+Illinois,IL,,J. B. Pritzker,0,Northern cardinal,Cardinalis cardinalis,
+Indiana,IN,https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Eric_Holcomb_Grissom.jpg/189px-Eric_Holcomb_Grissom.jpg,Eric Holcomb,1,Northern cardinal,Cardinalis cardinalis,
+Iowa,IA,,Kim Reynolds,0,Eastern goldfinch (American goldfinch),Spinus tristis,
+Kansas,KS,https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Laura_Kelly_official_photo_%28cropped%29.jpg/183px-Laura_Kelly_official_photo_%28cropped%29.jpg,Laura Kelly,1,Western meadowlark,Sturnella neglecta,
+Kentucky,KY,,Andy Beshear,0,Northern cardinal,Cardinalis cardinalis,
+Louisiana,LA,,John Bel Edwards,0,Brown pelican,Pelecanus occidentalis,
+Maine,ME,,Janet Mills,0,Chickadee,Not specified in state law,
+Maryland,MD,https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Governor_Hogan_2018_%28cropped%29.jpg/185px-Governor_Hogan_2018_%28cropped%29.jpg,Larry Hogan,1,Baltimore oriole,Icterus galbula,
+Massachusetts,MA,,Charlie Baker,0,Black-capped chickadee,Poecile atricapilla,
+Michigan,MI,,Gretchen Whitmer,0,American robin,Turdus migratorius,
+Minnesota,MN,,Tim Walz,0,Common loon,Gavia immer,
+Mississippi,MS,https://upload.wikimedia.org/wikipedia/commons/8/80/Tate_Reeves_2019.jpg,Tate Reeves,1,Northern mockingbird,Mimus polyglottos,
+Missouri,MO,,Mike Parson,0,Eastern bluebird,Sialia sialis,
+Montana,MT,,Steve Bullock,0,Western meadowlark,Sturnella neglecta,
+Nebraska,NE,,Pete Ricketts,0,Western meadowlark,Sturnella neglecta,
+Nevada,NV,,Steve Sisolak,0,Mountain bluebird,Sialia currucoides,
+New Hampshire,NH,,Chris Sununu,0,Purple finch,Carpodacus purpureus,
+New Jersey,NJ,,Phil Murphy,0,Eastern goldfinch (American goldfinch),Spinus tristis,
+New Mexico,NM,,Michelle Lujan Grisham,0,Chaparral bird (Greater roadrunner),Geococcyx californianus,
+New York,NY,,Andrew Cuomo,0,Eastern bluebird,Sialia sialis,
+North Carolina,NC,,Roy Cooper,0,Northern cardinal,Cardinalis cardinalis,
+North Dakota,ND,https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Governor_Doug_Burgum_%28cropped%29.jpg/179px-Governor_Doug_Burgum_%28cropped%29.jpg,Doug Burgum,1,Western meadowlark,Sturnella neglecta,
+Ohio,OH,https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gov-Mike-DeWine_%28cropped%29.jpg/176px-Gov-Mike-DeWine_%28cropped%29.jpg,Mike DeWine,1,Northern cardinal,Cardinalis cardinalis,
+Oklahoma,OK,,Kevin Stitt,0,Scissor-tailed flycatcher,Tyrannus forficatus,
+Oregon,OR,https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Kate_Brown_in_2017_%28cropped%29.jpg/184px-Kate_Brown_in_2017_%28cropped%29.jpg,Kate Brown,1,Western meadowlark,Sturnella neglecta,
+Pennsylvania,PA,https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Tom_Wolf_governor_portrait_2019_%28cropped%29.jpg/173px-Tom_Wolf_governor_portrait_2019_%28cropped%29.jpg,Tom Wolf,1,Ruffed Grouse,Bonasa umbellus,
+Rhode Island,RI,,Gina Raimondo,0,Rhode Island Red,Gallus gallus,
+South Carolina,SC,,Henry McMaster,0,Carolina wren,Thryothorus ludovicianus,
+South Dakota,SD,,Kristi Noem,0,Ring-necked pheasant,Phasianus colchicus,
+Tennessee,TN,,Bill Lee,0,Northern mockingbird,Mimus polyglottos,
+Texas,TX,,Greg Abbott,0,Northern mockingbird,Mimus polyglottos,
+Utah,UT,,Gary Herbert,0,California gull,Larus californicus,
+Vermont,VT,,Phil Scott,0,Hermit thrush,Catharus guttatus,
+Virginia,VA,,Ralph Northam,0,Northern cardinal,Cardinalis cardinalis,
+Washington,WA,,Jay Inslee,0,Willow goldfinch (American goldfinch),Spinus tristis,
+West Virginia,WV,,Jim Justice,0,Northern cardinal,Cardinalis cardinalis,
+Wisconsin,WI,https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tony_Evers_%28cropped%29.jpg/180px-Tony_Evers_%28cropped%29.jpg,Tony Evers,1,American robin,Turdus migratorius,
+Wyoming,WY,,Mark Gordon,0,Western meadowlark,Sturnella neglecta,
 "United States Virgin
-  Islands","""United States Virgin
-  Islands""",VI,checked,Albert Bryan,,
+  Islands",VI,https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Governor_Albert_Bryan_Jr..jpg/192px-Governor_Albert_Bryan_Jr..jpg,Albert Bryan,1,,,
 "Commonwealth of the Northern Mariana
-  Islands","""Commonwealth of the Northern Mariana
-  Islands""",MP,,Ralph Torres,,
-Guam,Guam,GU,,Lou Leon Guerrero,,
-Puerto Rico,Puerto Rico,PR,,Wanda Vázquez Garced,,
-American Samoa,American Samoa,AS,,Lolo Matalasi Moliga,,
-District of Columbia,District of Columbia,DC,,Muriel Bowser,,
+  Islands",MP,,Ralph Torres,0,,,
+Guam,GU,,Lou Leon Guerrero,0,Guam rail (ko'ko'),Gallirallus owstoni,
+Puerto Rico,PR,,Wanda Vázquez Garced,0,Puerto Rican spindalis,Spindalis portoricensis,
+American Samoa,AS,,Lolo Matalasi Moliga,0,None (See List of birds of American Samoa),—,

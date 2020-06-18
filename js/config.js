@@ -22,29 +22,20 @@ window.THEMES = [
             return $("<div>")
                 .append(
                     $("<h4>")
-                        .text(content)
+                        .html(
+                            content.replace(
+                                RegExp("u","ig"), 
+                				function(str) {return "<mark>"+str+"</mark>";}                                
+                            )
+                        )
                         .css("width", content.length > 30 ? "200px" : "inherit")
                         .css("white-space", content.length > 30 ? "normal" : "nowrap")
-                )
-                .append(
-                    $("<div>")
-                        .text(content)
-                        .css("width", content.length > 40 ? "150px" : "inherit")
-                        .css("white-space", content.length > 40 ? "normal" : "nowrap")
                 )
                 .html();
         },
         createPopupContent: function(record)
         {
-            var content = record.State;
-            return $("<div>")
-                    .append(
-                        $("<div>")
-                            .css("font-weight", "bold")
-                            .text(content)
-                    )
-                    .append($("<div>").text(content))
-                    .html();
+            return this.createTooltipContent(record);
         }		
     },
     {
@@ -62,37 +53,36 @@ window.THEMES = [
             }
         ],
         evaluator: function(value) {
-            return value.Glasses.toLowerCase().trim() === "checked" ? true : false;
+            return value.Glasses.toLowerCase().trim() === "1" ? true : false;
         },
         createTooltipContent: function(record)
         {
-            var content = record.Governor;
+            var state = record.State;
+            var governor = record.Governor;
+            var photo = record.Portrait;
             return $("<div>")
                 .append(
                     $("<h4>")
-                        .text(record.State)
+                        .text(state)
                         .css("width", record.State.length > 30 ? "200px" : "inherit")
                         .css("white-space", record.State.length > 30 ? "normal" : "nowrap")
                 )
                 .append(
+                    photo ? 
+                    $("<img>").attr("src", photo).css("max-width","100px") : 
+                    ""
+                )
+                .append(
                     $("<div>")
-                        .text(content)
-                        .css("width", content.length > 40 ? "150px" : "inherit")
-                        .css("white-space", content.length > 40 ? "normal" : "nowrap")
+                        .text(governor)
+                        .css("width", governor.length > 40 ? "150px" : "inherit")
+                        .css("white-space", governor.length > 40 ? "normal" : "nowrap")
                 )
                 .html();
         },
         createPopupContent: function(record)
         {
-            var content = record.Governor;
-            return $("<div>")
-                    .append(
-                        $("<div>")
-                            .css("font-weight", "bold")
-                            .text(content)
-                    )
-                    .append($("<div>").text(content))
-                    .html();
+            return this.createTooltipContent(record);
         }			
     }
 ];
