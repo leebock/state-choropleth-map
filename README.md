@@ -1,4 +1,4 @@
-# state-choropleth-map
+# state-thematic-map
 
 This repo contains the application files used to present a <a href="https://storymaps.esri.com/stories/2020/stupid-maps/" target="_blank">U.S. map thematically shaded by state</a> using Esri Leaflet.
 
