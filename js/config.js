@@ -115,6 +115,8 @@ window.THEMES = [
         createTooltipContent: function(record)
         {
             var state = record.State;
+            var count = parseInt(record.IdolWinners_Count);
+            var winners = record.IdolWinners_Names.split(",");
             return $("<div>")
                 .append(
                     $("<h4>")
@@ -124,9 +126,16 @@ window.THEMES = [
                 )
                 .append(
                     $("<div>")
-                        .html(record.IdolWinners_Count > 0 ? record.IdolWinners_Names : "Step it up, "+state+"!")
+                        .html(
+                            count === 0 ? "Step it up, "+state+"!" : 
+                            count === 1 ? winners[0] :
+                            $("<ul>").append(
+                                $.map(winners, function(name){return $("<li>").text(name);})
+                            )
+                            
+                        )/*
                         .css("width", record.IdolWinners_Names.length > 40 ? "150px" : "inherit")
-                        .css("white-space", record.IdolWinners_Names.length > 40 ? "normal" : "nowrap")
+                        .css("white-space", record.IdolWinners_Names.length > 40 ? "normal" : "nowrap")*/
                 )
                 .html();
         },
