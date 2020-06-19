@@ -85,13 +85,20 @@ a, button {
 }
 
 .banner {
+  display: none;
   flex-shrink: 0;
+  width: 100%;
+}
+.banner a#logo {
   display: none;
 }
 @media (max-width: 1023px) {
   .banner a#logo img {
     max-height: 30px;
   }
+}
+.banner h1#title {
+  margin-left: 20px;
 }
 @media (max-width: 1023px) {
   .banner h1#title {
@@ -138,6 +145,14 @@ a, button {
   font-size: 14px;
   padding: 5px;
   display: none;
+}
+@media (max-width: 900px) {
+  #main select#category {
+    display: block;
+  }
+  .embedded #main select#category {
+    display: none;
+  }
 }
 #main body:not(:-moz-handler-blocked) fieldset {
   display: table-cell;
@@ -200,6 +215,10 @@ a, button {
 #main div.toggle {
   display: none;
   justify-content: center;
+  display: flex;
+}
+.embedded #main div.toggle {
+  display: none;
 }
 @media (max-width: 900px) {
   #main div.toggle {

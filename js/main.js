@@ -21,8 +21,9 @@
 		
 		if (!inIframe()) {
 			new SocialButtonBar();
+			$(".banner").css("display", "flex");
 		} else {
-			$(".banner").hide();
+			$("html body").addClass("embedded");
 		}
 				
 		_map = new L.PaddingAwareMap(
