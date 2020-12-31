@@ -1,6 +1,6 @@
 # state-thematic-map
 
-This repo contains the application files used to present a <a href="https://storymaps.esri.com/stories/2020/stupid-maps/" target="_blank">U.S. map thematically shaded by state</a> using Esri Leaflet.
+This repo contains the application files used to present a <a href="https://leebock.github.io/state-thematic-map/" target="_blank">U.S. map thematically shaded by state</a> using Esri Leaflet.
 
 ## Deployment
 
@@ -8,7 +8,7 @@ The primary file types in this repo are **html**, **css**, and **javascript**.  
 
 ## Notes for developers
 
-* This is a simple [JAMstack](https://jamstack.org/) project, consisting only of vanilla javascript (no frameworks)
+* This is a simple vanilla javascript project (no frameworks)
 
 * The *html*, *css*, and *javascript* files in this project do not require build scripts.  Source files can be edited and re-deployed with modifications.
 
